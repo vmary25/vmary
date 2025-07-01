@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VMARY | Moda Médica Premium</title>
+    <meta name="description" content="VMARY - A revolução da moda médica. Vestuário premium para profissionais da saúde que valorizam estilo, conforto e inovação.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'nude': {
+                            50: '#fdf8f6',
+                            100: '#f2e8e5',
+                            200: '#eaddd7',
+                            300: '#e0cec7',
+                            400: '#d2bab0',
+                            500: '#bfa094',
+                            600: '#a18072',
+                            700: '#977669',
+                            800: '#846358',
+                            900: '#43302b',
+                        },
+                        'sage': {
+                            50: '#f6f7f6',
+                            100: '#e3e7e3',
+                            200: '#c7d2c7',
+                            300: '#a3b5a3',
+                            400: '#7a947a',
+                            500: '#5d7a5d',
+                            600: '#4a6147',
+                            700: '#3e4f3b',
+                            800: '#343f32',
+                            900: '#2b342a',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'scale-in': 'scaleIn 0.6s ease-out',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(60px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #f6f7f6 0%, #eaddd7 30%, #f2e8e5 70%, #fdf8f6 100%);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #5d7a5d, #7a947a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .product-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .image-overlay {
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.7) 100%);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #5d7a5d, #7a947a);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #4a6147, #5d7a5d);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(93, 122, 93, 0.3);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #bfa094, #d2bab0);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #a18072, #bfa094);
+            transform: translateY(-2px);
+        }
+        
+        .scroll-snap {
+            scroll-snap-type: x mandatory;
+        }
+        
+        .scroll-snap > * {
+            scroll-snap-align: center;
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f6f7f6;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #bfa094;
+            border-radius: 3px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a18072;
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .parallax {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white font-sans">
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 glass-card">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="text-3xl font-serif font-bold text-sage-700">VMARY</div>
+                    <div class="hidden sm:block text-xs text-sage-500 uppercase tracking-widest">Medical Fashion</div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-sage-700 hover:text-sage-500 font-medium transition-colors">Home</a>
+                    <a href="#collections" class="text-sage-700 hover:text-sage-500 font-medium transition-colors">Coleções</a>
+                    <a href="#story" class="text-sage-700 hover:text-sage-500 font-medium transition-colors">Nossa História</a>
+                    <a href="#contact" class="text-sage-700 hover:text-sage-500 font-medium transition-colors">Contato</a>
+                </div>
+                
+                <!-- Actions -->
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 text-sage-700 hover:text-sage-500 transition-colors">
+                        <i class="far fa-heart text-xl"></i>
+                    </button>
+                    <button class="p-2 text-sage-700 hover:text-sage-500 transition-colors relative" id="cart-btn">
+                        <i class="fas fa-shopping-bag text-xl"></i>
+                        <span class="absolute -top-1 -right-1 bg-sage-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </button>
+                    <button class="md:hidden p-2 text-sage-700" id="mobile-menu-btn">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white border-t" id="mobile-menu">
+            <div class="px-6 py-6 space-y-4">
+                <a href="#home" class="block text-sage-700 font-medium">Home</a>
+                <a href="#collections" class="block text-sage-700 font-medium">Coleções</a>
+                <a href="#story" class="block text-sage-700 font-medium">Nossa História</a>
+                <a href="#contact" class="block text-sage-700 font-medium">Contato</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient min-h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="animate-slide-up">
+                    <div class="mb-6">
+                        <span class="inline-block px-4 py-2 bg-sage-100 text-sage-700 rounded-full text-sm font-medium tracking-wide uppercase">
+                            Moda Médica Premium
+                        </span>
+                    </div>
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-sage-900 leading-tight mb-8">
+                        Onde <span class="text-gradient">elegância</span><br>
+                        encontra a <span class="text-gradient">medicina</span>
+                    </h1>
+                    <p class="text-xl text-sage-600 leading-relaxed mb-10 max-w-lg">
+                        Redescobrindo o vestuário médico através do design sofisticado, 
+                        materiais premium e tecnologia de ponta.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 mb-12">
+                        <button class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg">
+                            Explorar Coleção
+                        </button>
+                        <button class="border-2 border-sage-300 text-sage-700 px-8 py-4 rounded-full font-semibold text-lg hover:bg-sage-50 transition-all">
+                            Lookbook 2024
+                        </button>
+                    </div>
+                    <div class="flex items-center space-x-8 text-sm text-sage-500">
+                        <div class="flex items-center">
+                            <i class="fas fa-shield-alt mr-2"></i>
+                            Certificação Premium
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-leaf mr-2"></i>
+                            Sustentável
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-heart mr-2"></i>
+                            Feito com Amor
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative animate-fade-in">
+                    <div class="absolute inset-0 bg-gradient-to-br from-sage-200/20 to-nude-200/20 rounded-3xl transform rotate-3"></div>
+                    <div class="relative">
+                        <img src="keys/hero-fashion-medical-vmary?prompt=Elegant%20diverse%20medical%20professionals%20wearing%20stylish%20premium%20medical%20uniforms%2C%20fashion%20photography%20style%2C%20soft%20natural%20lighting%2C%20modern%20minimalist%20background%2C%20high%20end%20fashion%20aesthetic" 
+                             alt="VMARY Medical Fashion Collection" 
+                             class="w-full rounded-3xl shadow-2xl">
+                        <div class="absolute inset-0 rounded-3xl image-overlay"></div>
+                        <div class="absolute bottom-8 left-8 text-white">
+                            <div class="text-sm font-medium mb-2">Coleção Primavera 2024</div>
+                            <div class="text-2xl font-serif font-bold">Elegância Profissional</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Collections -->
+    <section id="collections" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-sage-900 mb-6">
+                    Nossas Coleções
+                </h2>
+                <p class="text-xl text-sage-600 max-w-2xl mx-auto">
+                    Cada peça é cuidadosamente projetada para unir funcionalidade médica com elegância contemporânea
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Collection 1 -->
+                <div class="product-card group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-2xl mb-6">
+                        <img src="keys/collection-essence-vmary?prompt=Premium%20white%20and%20sage%20green%20medical%20scrubs%20collection%2C%20minimalist%20fashion%20photography%2C%20clean%20studio%20lighting%2C%20elegant%20models%2C%20high%20end%20medical%20fashion" 
+                             alt="Coleção Essence" 
+                             class="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute top-6 left-6">
+                            <span class="bg-white text-sage-700 px-3 py-1 rounded-full text-sm font-medium">Nova Coleção</span>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-2xl font-serif font-semibold text-sage-900 mb-3">Essence</h3>
+                        <p class="text-sage-600 mb-4">Minimalismo elegante para o dia a dia médico</p>
+                        <div class="text-sage-500 text-sm">A partir de R$ 289</div>
+                    </div>
+                </div>
+                
+                <!-- Collection 2 -->
+                <div class="product-card group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-2xl mb-6">
+                        <img src="keys/collection-luxe-vmary?prompt=Luxury%20medical%20lab%20coats%20in%20premium%20fabrics%2C%20sophisticated%20design%2C%20fashion%20photography%2C%20professional%20medical%20models%2C%20elegant%20hospital%20setting" 
+                             alt="Coleção Luxe" 
+                             class="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute top-6 left-6">
+                            <span class="bg-nude-500 text-white px-3 py-1 rounded-full text-sm font-medium">Premium</span>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-2xl font-serif font-semibold text-sage-900 mb-3">Luxe</h3>
+                        <p class="text-sage-600 mb-4">Sofisticação máxima para especialistas</p>
+                        <div class="text-sage-500 text-sm">A partir de R$ 389</div>
+                    </div>
+                </div>
+                
+                <!-- Collection 3 -->
+                <div class="product-card group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-2xl mb-6">
+                        <img src="keys/collection-earth-vmary?prompt=Sustainable%20medical%20uniforms%20in%20earth%20tones%2C%20eco-friendly%20fabrics%2C%20natural%20aesthetic%2C%20outdoor%20medical%20setting%2C%20environmental%20healthcare" 
+                             alt="Coleção Earth" 
+                             class="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute top-6 left-6">
+                            <span class="bg-sage-600 text-white px-3 py-1 rounded-full text-sm font-medium">Sustentável</span>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-2xl font-serif font-semibold text-sage-900 mb-3">Earth</h3>
+                        <p class="text-sage-600 mb-4">Consciência ambiental e estilo único</p>
+                        <div class="text-sage-500 text-sm">A partir de R$ 249</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Product Showcase -->
+    <section class="py-24 bg-sage-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="mb-8">
+                        <span class="inline-block px-4 py-2 bg-sage-200 text-sage-700 rounded-full text-sm font-medium tracking-wide uppercase mb-6">
+                            Produto em Destaque
+                        </span>
+                        <h2 class="text-4xl md:text-5xl font-serif font-bold text-sage-900 mb-6">
+                            Scrub Signature<br>
+                            <span class="text-gradient">Collection</span>
+                        </h2>
+                        <p class="text-xl text-sage-600 leading-relaxed mb-8">
+                            Nossa peça mais icônica: tecido premium com tecnologia antimicrobiana, 
+                            corte anatômico e acabamentos de alta costura.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6 mb-10">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-sage-200 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-leaf text-sage-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-sage-900 mb-2">Tecido Sustentável</h4>
+                                <p class="text-sage-600">Fibras orgânicas com certificação GOTS e tecnologia de reciclagem avançada</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-sage-200 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-scissors text-sage-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-sage-900 mb-2">Corte Anatômico</h4>
+                                <p class="text-sage-600">Design ergonômico que acompanha os movimentos naturais do corpo</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-sage-200 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-star text-sage-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-sage-900 mb-2">Acabamento Premium</h4>
+                                <p class="text-sage-600">Costuras reforçadas e detalhes em alta costura para durabilidade excepcional</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="btn-primary text-white px-8 py-4 rounded-full font-semibold">
+                            Ver Detalhes
+                        </button>
+                        <button class="btn-secondary text-sage-700 px-8 py-4 rounded-full font-semibold">
+                            Guia de Tamanhos
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="order-1 lg:order-2">
+                    <div class="relative">
+                        <img src="keys/signature-scrub-detail-vmary?prompt=Premium%20medical%20scrub%20detail%20shot%2C%20luxury%20fabric%20texture%2C%20elegant%20stitching%2C%20fashion%20photography%2C%20soft%20natural%20lighting%2C%20sage%20green%20color%2C%20high%20end%20medical%20fashion" 
+                             alt="Scrub Signature Collection" 
+                             class="w-full rounded-3xl shadow-2xl">
+                        <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-nude-200 to-nude-300 rounded-2xl opacity-60"></div>
+                        <div class="absolute -top-8 -left-8 w-24 h-24 bg-gradient-to-br from-sage-200 to-sage-300 rounded-xl opacity-60"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Lifestyle Section -->
+    <section class="py-24 parallax" style="background-image: url('keys/lifestyle-medical-fashion?prompt=Modern%20hospital%20lifestyle%20scene%20with%20fashionable%20medical%20professionals%2C%20contemporary%20medical%20environment%2C%20natural%20lighting%2C%20professional%20atmosphere%2C%20high%20end%20aesthetic');">
+        <div class="bg-black/40">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 py-24">
+                <div class="text-center text-white">
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6">
+                        Mais que Uniformes,<br>
+                        uma Filosofia de Vida
+                    </h2>
+                    <p class="text-xl max-w-2xl mx-auto mb-10 text-white/90">
+                        VMARY acredita que profissionais da saúde merecem se sentir confiantes, 
+                        elegantes e confortáveis enquanto cuidam de vidas.
+                    </p>
+                    <button class="bg-white text-sage-700 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all">
+                        Conheça Nossa História
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-sage-900 mb-6">
+                    Amado por Profissionais
+                </h2>
+                <p class="text-xl text-sage-600 max-w-2xl mx-auto">
+                    Descubra por que médicos, enfermeiros e profissionais da saúde escolhem VMARY
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card rounded-2xl p-8">
+                    <div class="flex items-center mb-6">
+                        <img src="keys/testimonial-doctor-ana?prompt=Professional%20female%20doctor%20portrait%2C%20confident%20smile%2C%20modern%20medical%20environment%2C%20elegant%20aesthetic%2C%20natural%20lighting" 
+                             alt="Dra. Ana Sophia" 
+                             class="w-16 h-16 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-sage-900">Dra. Ana Sophia</h4>
+                            <p class="text-sage-600 text-sm">Cardiologista</p>
+                            <div class="flex text-yellow-400 mt-1">
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <blockquote class="text-sage-600 italic leading-relaxed">
+                        "A qualidade é incomparável. Finalmente encontrei uniformes que refletem minha personalidade 
+                        profissional sem comprometer o conforto."
+                    </blockquote>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-8">
+                    <div class="flex items-center mb-6">
+                        <img src="keys/testimonial-nurse-carlos?prompt=Professional%20male%20nurse%20portrait%2C%20caring%20expression%2C%20hospital%20background%2C%20modern%20medical%20uniform%2C%20warm%20lighting" 
+                             alt="Enf. Carlos Miguel" 
+                             class="w-16 h-16 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-sage-900">Enf. Carlos Miguel</h4>
+                            <p class="text-sage-600 text-sm">Enfermeiro</p>
+                            <div class="flex text-yellow-400 mt-1">
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <blockquote class="text-sage-600 italic leading-relaxed">
+                        "O tecido é incrível! Mesmo após 12 horas de plantão, me sinto confortável 
+                        e as peças mantêm a forma perfeita."
+                    </blockquote>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-8">
+                    <div class="flex items-center mb-6">
+                        <img src="keys/testimonial-dentist-maria?prompt=Professional%20female%20dentist%20portrait%2C%20confident%20professional%20look%2C%20dental%20clinic%20background%2C%20clean%20modern%20aesthetic" 
+                             alt="Dra. Maria Fernanda" 
+                             class="w-16 h-16 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-sage-900">Dra. Maria Fernanda</h4>
+                            <p class="text-sage-600 text-sm">Odontologista</p>
+                            <div class="flex text-yellow-400 mt-1">
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <blockquote class="text-sage-600 italic leading-relaxed">
+                        "VMARY transformou meu consultório. Os pacientes sempre elogiam meu visual profissional 
+                        e eu me sinto mais confiante."
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Our Story -->
+    <section id="story" class="py-24 bg-sage-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <img src="keys/vmary-story-behind-scenes?prompt=Behind%20the%20scenes%20of%20VMARY%20design%20studio%2C%20fashion%20designers%20working%20on%20medical%20uniforms%2C%20elegant%20atelier%20environment%2C%20creative%20process" 
+                         alt="Nossa História" 
+                         class="w-full rounded-3xl shadow-2xl">
+                </div>
+                
+                <div>
+                    <div class="mb-8">
+                        <span class="inline-block px-4 py-2 bg-nude-200 text-nude-700 rounded-full text-sm font-medium tracking-wide uppercase mb-6">
+                            Nossa Jornada
+                        </span>
+                        <h2 class="text-4xl md:text-5xl font-serif font-bold text-sage-900 mb-6">
+                            Nascemos da paixão por<br>
+                            <span class="text-gradient">design e medicina</span>
+                        </h2>
+                        <p class="text-xl text-sage-600 leading-relaxed mb-8">
+                            Fundada em 2019 por uma equipe multidisciplinar de designers de moda e profissionais da saúde, 
+                            VMARY nasceu do desejo de revolucionar o vestuário médico.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6 mb-10">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-4 h-4 bg-sage-600 rounded-full"></div>
+                            <div class="text-sage-600">2019 - Fundação da marca com foco em design sustentável</div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-4 h-4 bg-sage-600 rounded-full"></div>
+                            <div class="text-sage-600">2020 - Lançamento da primeira coleção premium</div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-4 h-4 bg-sage-600 rounded-full"></div>
+                            <div class="text-sage-600">2021 - Certificação internacional de sustentabilidade</div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-4 h-4 bg-sage-600 rounded-full"></div>
+                            <div class="text-sage-600">2024 - Presença nacional e expansão internacional</div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-primary text-white px-8 py-4 rounded-full font-semibold">
+                        Conheça Nossa Missão
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter -->
+    <section class="py-24 bg-gradient-to-br from-sage-700 via-sage-600 to-sage-800">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6">
+                Fique por Dentro da Moda Médica
+            </h2>
+            <p class="text-xl text-sage-100 mb-10 max-w-2xl mx-auto">
+                Receba em primeira mão nossos lançamentos, lookbooks exclusivos e conteúdos sobre estilo profissional.
+            </p>
+            
+            <form class="max-w-md mx-auto mb-8">
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <input type="email" 
+                           placeholder="Seu melhor e-mail" 
+                           class="flex-1 px-6 py-4 rounded-full text-sage-700 focus:outline-none focus:ring-4 focus:ring-white/25 transition-all">
+                    <button type="submit" 
+                            class="bg-white text-sage-700 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all">
+                        Inscrever-se
+                    </button>
+                </div>
+            </form>
+            
+            <p class="text-sage-200 text-sm">
+                Prometemos não fazer spam. Apenas conteúdo exclusivo e relevante.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer id="contact" class="bg-sage-900 text-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="py-16 grid md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div class="md:col-span-2">
+                    <div class="text-3xl font-serif font-bold mb-4">VMARY</div>
+                    <p class="text-sage-300 leading-relaxed max-w-md mb-8">
+                        Revolucionando o vestuário médico através do design sofisticado, 
+                        sustentabilidade e inovação tecnológica.
+                    </p>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-sage-800 rounded-full flex items-center justify-center hover:bg-sage-700 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-sage-800 rounded-full flex items-center justify-center hover:bg-sage-700 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-sage-800 rounded-full flex items-center justify-center hover:bg-sage-700 transition-colors">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-sage-800 rounded-full flex items-center justify-center hover:bg-sage-700 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Links -->
+                <div>
+                    <h4 class="font-serif font-semibold text-lg mb-6">Coleções</h4>
+                    <ul class="space-y-3 text-sage-300">
+                        <li><a href="#" class="hover:text-white transition-colors">Essence</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Luxe</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Earth</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Limited Edition</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Acessórios</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Support -->
+                <div>
+                    <h4 class="font-serif font-semibold text-lg mb-6">Suporte</h4>
+                    <ul class="space-y-3 text-sage-300">
+                        <li><a href="#" class="hover:text-white transition-colors">Guia de Tamanhos</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Cuidados</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Trocas e Devoluções</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contato</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+                    </ul>
+                    
+                    <div class="mt-8 space-y-2 text-sage-300 text-sm">
+                        <div>atendimento@vmary.com.br</div>
+                        <div>(11) 9999-9999</div>
+                        <div>Seg-Sex: 9h às 18h</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-sage-800 py-8 flex flex-col md:flex-row justify-between items-center text-sage-400 text-sm">
+                <div>© 2024 VMARY. Todos os direitos reservados.</div>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Privacidade</a>
+                    <a href="#" class="hover:text-white transition-colors">Termos</a>
+                    <a href="#" class="hover:text-white transition-colors">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Admin Panel (Hidden by default) -->
+    <div id="admin-panel" class="fixed inset-0 bg-gray-100 z-50 hidden">
+        <!-- Admin Header -->
+        <header class="bg-sage-900 text-white p-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <h1 class="text-2xl font-serif font-bold">VMARY Admin</h1>
+                <span class="bg-sage-700 px-3 py-1 rounded-full text-sm">Dashboard</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-sage-300">Admin User</span>
+                <button onclick="logoutAdmin()" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                    Sair
+                </button>
+            </div>
+        </header>
+
+        <div class="flex h-screen">
+            <!-- Admin Sidebar -->
+            <aside class="w-64 bg-white shadow-lg">
+                <nav class="p-6">
+                    <ul class="space-y-2">
+                        <li>
+                            <button onclick="showAdminSection('dashboard')" class="admin-nav-btn w-full text-left px-4 py-3 rounded-lg hover:bg-sage-50 transition-colors flex items-center space-x-3">
+                                <i class="fas fa-chart-pie text-sage-600"></i>
+                                <span>Dashboard</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="showAdminSection('products')" class="admin-nav-btn w-full text-left px-4 py-3 rounded-lg hover:bg-sage-50 transition-colors flex items-center space-x-3">
+                                <i class="fas fa-tshirt text-sage-600"></i>
+                                <span>Produtos</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="showAdminSection('orders')" class="admin-nav-btn w-full text-left px-4 py-3 rounded-lg hover:bg-sage-50 transition-colors flex items-center space-x-3">
+                                <i class="fas fa-shopping-cart text-sage-600"></i>
+                                <span>Pedidos</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="showAdminSection('customers')" class="admin-nav-btn w-full text-left px-4 py-3 rounded-lg hover:bg-sage-50 transition-colors flex items-center space-x-3">
+                                <i class="fas fa-users text-sage-600"></i>
+                                <span>Clientes</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="showAdminSection('newsletter')" class="admin-nav-btn w-full text-left px-4 py-3 rounded-lg hover:bg-sage-50 transition-colors flex items-center space-x-3">
+                                <i class="fas fa-envelope text-sage-600"></i>
+                                <span>Newsletter</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="showAdminSection('analytics')" class="admin-nav-btn w-full text-left px-4 py-3 rounded-lg hover:bg-sage-50 transition-colors flex items-center space-x-3">
+                                <i class="fas fa-chart-line text-sage-600"></i>
+                                <span>Analytics</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="showAdminSection('settings')" class="admin-nav-btn w-full text-left px-4 py-3 rounded-lg hover:bg-sage-50 transition-colors flex items-center space-x-3">
+                                <i class="fas fa-cog text-sage-600"></i>
+                                <span>Configurações</span>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Admin Content -->
+            <main class="flex-1 p-8 overflow-y-auto">
+                <!-- Dashboard Section -->
+                <div id="admin-dashboard" class="admin-section">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-serif font-bold text-sage-900 mb-2">Dashboard</h2>
+                        <p class="text-sage-600">Visão geral da performance da VMARY</p>
+                    </div>
+
+                    <!-- Stats Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                        <div class="bg-white rounded-xl p-6 shadow-lg">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-dollar-sign text-green-600 text-xl"></i>
+                                </div>
+                                <span class="text-green-500 text-sm font-medium">+12.5%</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-1">R$ 45.230</h3>
+                            <p class="text-gray-600 text-sm">Vendas do Mês</p>
+                        </div>
+
+                        <div class="bg-white rounded-xl p-6 shadow-lg">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-shopping-bag text-blue-600 text-xl"></i>
+                                </div>
+                                <span class="text-blue-500 text-sm font-medium">+8.2%</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-1">156</h3>
+                            <p class="text-gray-600 text-sm">Pedidos</p>
+                        </div>
+
+                        <div class="bg-white rounded-xl p-6 shadow-lg">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-users text-purple-600 text-xl"></i>
+                                </div>
+                                <span class="text-purple-500 text-sm font-medium">+15.3%</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-1">1.234</h3>
+                            <p class="text-gray-600 text-sm">Clientes</p>
+                        </div>
+
+                        <div class="bg-white rounded-xl p-6 shadow-lg">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-envelope text-orange-600 text-xl"></i>
+                                </div>
+                                <span class="text-orange-500 text-sm font-medium">+22.1%</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-1">2.345</h3>
+                            <p class="text-gray-600 text-sm">Newsletter</p>
+                        </div>
+                    </div>
+
+                    <!-- Charts Row -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                        <div class="bg-white rounded-xl p-6 shadow-lg">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Vendas por Mês</h3>
+                            <div class="h-64 bg-gradient-to-t from-sage-50 to-white rounded-lg flex items-end justify-center">
+                                <div class="text-sage-600">Gráfico de Vendas</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl p-6 shadow-lg">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Produtos Mais Vendidos</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-600">Scrub Signature</span>
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-20 bg-gray-200 rounded-full h-2">
+                                            <div class="bg-sage-600 h-2 rounded-full" style="width: 85%"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-500">85%</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-600">Essence Basic</span>
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-20 bg-gray-200 rounded-full h-2">
+                                            <div class="bg-sage-600 h-2 rounded-full" style="width: 72%"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-500">72%</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-600">Luxe Premium</span>
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-20 bg-gray-200 rounded-full h-2">
+                                            <div class="bg-sage-600 h-2 rounded-full" style="width: 68%"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-500">68%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Orders -->
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Pedidos Recentes</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="border-b border-gray-200">
+                                        <th class="text-left py-3 px-4 font-medium text-gray-600">Pedido</th>
+                                        <th class="text-left py-3 px-4 font-medium text-gray-600">Cliente</th>
+                                        <th class="text-left py-3 px-4 font-medium text-gray-600">Produto</th>
+                                        <th class="text-left py-3 px-4 font-medium text-gray-600">Valor</th>
+                                        <th class="text-left py-3 px-4 font-medium text-gray-600">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-gray-100">
+                                        <td class="py-3 px-4">#VM001</td>
+                                        <td class="py-3 px-4">Dra. Ana Silva</td>
+                                        <td class="py-3 px-4">Scrub Signature</td>
+                                        <td class="py-3 px-4">R$ 289</td>
+                                        <td class="py-3 px-4"><span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Enviado</span></td>
+                                    </tr>
+                                    <tr class="border-b border-gray-100">
+                                        <td class="py-3 px-4">#VM002</td>
+                                        <td class="py-3 px-4">Enf. Carlos Santos</td>
+                                        <td class="py-3 px-4">Essence Basic</td>
+                                        <td class="py-3 px-4">R$ 189</td>
+                                        <td class="py-3 px-4"><span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Processando</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Section -->
+                <div id="admin-products" class="admin-section hidden">
+                    <div class="flex justify-between items-center mb-8">
+                        <div>
+                            <h2 class="text-3xl font-serif font-bold text-sage-900 mb-2">Produtos</h2>
+                            <p class="text-sage-600">Gerencie o catálogo de produtos da VMARY</p>
+                        </div>
+                        <button onclick="openProductModal()" class="bg-sage-600 hover:bg-sage-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                            <i class="fas fa-plus mr-2"></i>
+                            Novo Produto
+                        </button>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                            <img src="keys/admin-product-1?prompt=Premium%20medical%20scrub%20product%20photo%2C%20white%20background%2C%20professional%20lighting%2C%20sage%20green%20color" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="font-semibold text-gray-900 mb-2">Scrub Signature</h3>
+                                <p class="text-gray-600 text-sm mb-3">Coleção Premium</p>
+                                <div class="flex justify-between items-center mb-4">
+                                    <span class="text-lg font-bold text-sage-600">R$ 289</span>
+                                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Ativo</span>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button class="flex-1 bg-sage-100 text-sage-700 py-2 px-4 rounded-lg text-sm font-medium hover:bg-sage-200 transition-colors">
+                                        Editar
+                                    </button>
+                                    <button class="bg-gray-100 text-gray-600 py-2 px-4 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                            <img src="keys/admin-product-2?prompt=Medical%20lab%20coat%20product%20photo%2C%20white%20background%2C%20professional%20lighting%2C%20luxury%20design" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="font-semibold text-gray-900 mb-2">Luxe Lab Coat</h3>
+                                <p class="text-gray-600 text-sm mb-3">Coleção Luxe</p>
+                                <div class="flex justify-between items-center mb-4">
+                                    <span class="text-lg font-bold text-sage-600">R$ 389</span>
+                                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Ativo</span>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button class="flex-1 bg-sage-100 text-sage-700 py-2 px-4 rounded-lg text-sm font-medium hover:bg-sage-200 transition-colors">
+                                        Editar
+                                    </button>
+                                    <button class="bg-gray-100 text-gray-600 py-2 px-4 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                            <img src="keys/admin-product-3?prompt=Sustainable%20medical%20uniform%20product%20photo%2C%20white%20background%2C%20professional%20lighting%2C%20earth%20tones" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="font-semibold text-gray-900 mb-2">Earth Uniform</h3>
+                                <p class="text-gray-600 text-sm mb-3">Coleção Earth</p>
+                                <div class="flex justify-between items-center mb-4">
+                                    <span class="text-lg font-bold text-sage-600">R$ 249</span>
+                                    <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">Esgotado</span>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button class="flex-1 bg-sage-100 text-sage-700 py-2 px-4 rounded-lg text-sm font-medium hover:bg-sage-200 transition-colors">
+                                        Editar
+                                    </button>
+                                    <button class="bg-gray-100 text-gray-600 py-2 px-4 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orders Section -->
+                <div id="admin-orders" class="admin-section hidden">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-serif font-bold text-sage-900 mb-2">Pedidos</h2>
+                        <p class="text-sage-600">Gerencie todos os pedidos da VMARY</p>
+                    </div>
+
+                    <!-- Orders Filters -->
+                    <div class="bg-white rounded-xl p-6 shadow-lg mb-6">
+                        <div class="flex flex-wrap gap-4">
+                            <select class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sage-500">
+                                <option>Todos os Status</option>
+                                <option>Pendente</option>
+                                <option>Processando</option>
+                                <option>Enviado</option>
+                                <option>Entregue</option>
+                                <option>Cancelado</option>
+                            </select>
+                            <input type="date" class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sage-500">
+                            <input type="text" placeholder="Buscar pedido..." class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sage-500">
+                            <button class="bg-sage-600 hover:bg-sage-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                                Filtrar
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Orders Table -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="text-left py-4 px-6 font-medium text-gray-600">Pedido</th>
+                                        <th class="text-left py-4 px-6 font-medium text-gray-600">Cliente</th>
+                                        <th class="text-left py-4 px-6 font-medium text-gray-600">Data</th>
+                                        <th class="text-left py-4 px-6 font-medium text-gray-600">Total</th>
+                                        <th class="text-left py-4 px-6 font-medium text-gray-600">Status</th>
+                                        <th class="text-left py-4 px-6 font-medium text-gray-600">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-gray-100">
+                                        <td class="py-4 px-6 font-medium">#VM001</td>
+                                        <td class="py-4 px-6">Dra. Ana Silva</td>
+                                        <td class="py-4 px-6">01/07/2024</td>
+                                        <td class="py-4 px-6">R$ 289</td>
+                                        <td class="py-4 px-6">
+                                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Enviado</span>
+                                        </td>
+                                        <td class="py-4 px-6">
+                                            <div class="flex space-x-2">
+                                                <button class="text-sage-600 hover:text-sage-800">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="text-blue-600 hover:text-blue-800">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-b border-gray-100">
+                                        <td class="py-4 px-6 font-medium">#VM002</td>
+                                        <td class="py-4 px-6">Enf. Carlos Santos</td>
+                                        <td class="py-4 px-6">30/06/2024</td>
+                                        <td class="py-4 px-6">R$ 189</td>
+                                        <td class="py-4 px-6">
+                                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Processando</span>
+                                        </td>
+                                        <td class="py-4 px-6">
+                                            <div class="flex space-x-2">
+                                                <button class="text-sage-600 hover:text-sage-800">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="text-blue-600 hover:text-blue-800">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Newsletter Section -->
+                <div id="admin-newsletter" class="admin-section hidden">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-serif font-bold text-sage-900 mb-2">Newsletter</h2>
+                        <p class="text-sage-600">Gerencie inscrições e campanhas da newsletter</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <!-- Newsletter Stats -->
+                        <div class="lg:col-span-2">
+                            <div class="bg-white rounded-xl p-6 shadow-lg mb-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-4">Estatísticas da Newsletter</h3>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <div class="text-3xl font-bold text-sage-600">2.345</div>
+                                        <div class="text-gray-600">Total de Inscritos</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-3xl font-bold text-blue-600">156</div>
+                                        <div class="text-gray-600">Novas Inscrições (Mês)</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-3xl font-bold text-green-600">24.5%</div>
+                                        <div class="text-gray-600">Taxa de Abertura</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-3xl font-bold text-purple-600">8.2%</div>
+                                        <div class="text-gray-600">Taxa de Clique</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Recent Subscribers -->
+                            <div class="bg-white rounded-xl p-6 shadow-lg">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-4">Inscrições Recentes</h3>
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between py-2">
+                                        <div>
+                                            <div class="font-medium">ana.silva@hospital.com</div>
+                                            <div class="text-sm text-gray-500">Há 2 horas</div>
+                                        </div>
+                                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Ativo</span>
+                                    </div>
+                                    <div class="flex items-center justify-between py-2">
+                                        <div>
+                                            <div class="font-medium">carlos.santos@clinica.com</div>
+                                            <div class="text-sm text-gray-500">Há 5 horas</div>
+                                        </div>
+                                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Ativo</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Newsletter Actions -->
+                        <div>
+                            <div class="bg-white rounded-xl p-6 shadow-lg">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-4">Ações Rápidas</h3>
+                                <div class="space-y-3">
+                                    <button class="w-full bg-sage-600 hover:bg-sage-700 text-white py-3 px-4 rounded-lg font-medium transition-colors">
+                                        <i class="fas fa-paper-plane mr-2"></i>
+                                        Nova Campanha
+                                    </button>
+                                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-medium transition-colors">
+                                        <i class="fas fa-download mr-2"></i>
+                                        Exportar Lista
+                                    </button>
+                                    <button class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 px-4 rounded-lg font-medium transition-colors">
+                                        <i class="fas fa-chart-bar mr-2"></i>
+                                        Relatório Detalhado
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Section -->
+                <div id="admin-settings" class="admin-section hidden">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-serif font-bold text-sage-900 mb-2">Configurações</h2>
+                        <p class="text-sage-600">Configure as opções gerais do site</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Site Settings -->
+                        <div class="bg-white rounded-xl p-6 shadow-lg">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Configurações do Site</h3>
+                            <form class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Nome do Site</label>
+                                    <input type="text" value="VMARY | Moda Médica Premium" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sage-500">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Descrição</label>
+                                    <textarea class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sage-500" rows="3">A revolução da moda médica. Vestuário premium para profissionais da saúde que valorizam estilo, conforto e inovação.</textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Email de Contato</label>
+                                    <input type="email" value="atendimento@vmary.com.br" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sage-500">
+                                </div>
+                                <button type="submit" class="bg-sage-600 hover:bg-sage-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                                    Salvar Alterações
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Backup & Security -->
+                        <div class="bg-white rounded-xl p-6 shadow-lg">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Backup & Segurança</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between py-3 border-b border-gray-100">
+                                    <div>
+                                        <div class="font-medium">Backup Automático</div>
+                                        <div class="text-sm text-gray-500">Backup diário dos dados</div>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" checked class="sr-only peer">
+                                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-sage-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-sage-600"></div>
+                                    </label>
+                                </div>
+                                <div class="flex items-center justify-between py-3 border-b border-gray-100">
+                                    <div>
+                                        <div class="font-medium">Autenticação 2FA</div>
+                                        <div class="text-sm text-gray-500">Segurança adicional para admin</div>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" class="sr-only peer">
+                                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-sage-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-sage-600"></div>
+                                    </label>
+                                </div>
+                                <button class="w-full bg-red-600 hover:bg-red-700 text-white py-3 px-4 rounded-lg font-medium transition-colors">
+                                    <i class="fas fa-download mr-2"></i>
+                                    Fazer Backup Manual
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div id="admin-login-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full">
+            <div class="text-center mb-8">
+                <div class="text-3xl font-serif font-bold text-sage-900 mb-2">VMARY Admin</div>
+                <p class="text-sage-600">Acesso restrito ao painel administrativo</p>
+            </div>
+            <form id="admin-login-form" class="space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" id="admin-username" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-sage-500" placeholder="admin@vmary.com">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Senha</label>
+                    <input type="password" id="admin-password" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-sage-500" placeholder="admin123">
+                </div>
+                <div class="text-xs text-gray-500 text-center">
+                    Demo: email "admin@vmary.com" | senha "admin123"<br>
+                    <span class="text-blue-500">🎯 Modo Demo - 100% Funcional sem Firebase!</span>
+                </div>
+                <button type="submit" class="w-full bg-sage-600 hover:bg-sage-700 text-white py-3 px-4 rounded-lg font-medium transition-colors">
+                    Entrar no Painel
+                </button>
+                <button type="button" onclick="closeAdminLogin()" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-4 rounded-lg font-medium transition-colors">
+                    Cancelar
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module">
+        // Firebase Configuration - Substitua com suas credenciais
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, onSnapshot, query, orderBy, where } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+        import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+        import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js';
+        import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js';
+
+        // CONFIGURE SUAS CREDENCIAIS FIREBASE AQUI
+        const firebaseConfig = {
+            apiKey: "AIzaSyBG6vbuSGFKtHdDrrvxWNCyYf5YDuOAni0",
+            authDomain: "vmary-site.firebaseapp.com",
+            projectId: "vmary-site",
+            storageBucket: "vmary-site.firebasestorage.app",
+            messagingSenderId: "131440132128",
+            appId: "1:131440132128:web:9bcfeaad77343233e9fc45",
+            measurementId: "G-HZ5KF8E8DQ"
+        };
+
+        // Initialize Firebase
+        let app, db, auth, storage, analytics;
+        
+        // Force demo mode to avoid billing requirements
+        console.log('🎯 Modo Demo Ativado - Sem necessidade de Firebase');
+        console.log('💡 Para produção, configure Firebase com plano Blaze');
+        
+        // Disable Firebase to avoid quota/billing issues
+        app = null;
+        db = null;
+        auth = null;
+        storage = null;
+        analytics = null;
+
+        // Global state
+        let isAdminLoggedIn = false;
+        let products = [];
+        let orders = [];
+        let customers = [];
+        let newsletterSubscribers = [];
+        let siteSettings = {};
+
+        // Initialize data on page load
+        initializeVMARY();
+
+        async function initializeVMARY() {
+            console.log('🚀 Inicializando VMARY...');
+            
+            try {
+                if (db) {
+                    console.log('📡 Carregando dados do Firebase...');
+                    // Load initial data
+                    await Promise.all([
+                        loadProducts(),
+                        loadOrders(),
+                        loadCustomers(),
+                        loadNewsletterSubscribers(),
+                        loadSiteSettings()
+                    ]);
+                } else {
+                    console.log('📝 Usando dados demo...');
+                    loadDemoData();
+                }
+                
+                // Update UI
+                updateProductsDisplay();
+                updateDashboardStats();
+                updateNewsletterStats();
+                
+                console.log('✅ VMARY inicializado com sucesso!');
+            } catch (error) {
+                console.error('❌ Erro ao inicializar VMARY:', error);
+                console.log('🔄 Fallback para dados demo...');
+                loadDemoData();
+                updateProductsDisplay();
+                updateDashboardStats();
+                updateNewsletterStats();
+            }
+        }
+
+        // =================== FIREBASE FUNCTIONS ===================
+
+        // Products Management
+        async function loadProducts() {
+            if (!db) {
+                console.log('📦 Carregando produtos demo...');
+                return;
+            }
+            
+            try {
+                console.log('📦 Carregando produtos do Firebase...');
+                const querySnapshot = await getDocs(collection(db, 'products'));
+                products = [];
+                querySnapshot.forEach((doc) => {
+                    products.push({ id: doc.id, ...doc.data() });
+                });
+                console.log(`✅ ${products.length} produtos carregados`);
+            } catch (error) {
+                console.error('❌ Erro ao carregar produtos:', error);
+                products = [];
+            }
+        }
+
+        async function addProduct(productData) {
+            // Demo mode - simulate product addition
+            console.log('🛍️ Produto Demo:', productData);
+            
+            const newProduct = {
+                id: 'demo-prod-' + Date.now(),
+                ...productData,
+                createdAt: new Date(),
+                updatedAt: new Date()
+            };
+            
+            products.push(newProduct);
+            updateProductsDisplay();
+            alert('✅ Produto adicionado com sucesso! (Modo Demo)\nEm produção, seria salvo no banco de dados.');
+            
+            return newProduct.id;
+        }
+
+        async function updateProduct(productId, updateData) {
+            if (!db) return;
+            
+            try {
+                await updateDoc(doc(db, 'products', productId), {
+                    ...updateData,
+                    updatedAt: new Date()
+                });
+                await loadProducts();
+                updateProductsDisplay();
+            } catch (error) {
+                console.error('Erro ao atualizar produto:', error);
+            }
+        }
+
+        async function deleteProduct(productId) {
+            if (!db) return;
+            
+            try {
+                await deleteDoc(doc(db, 'products', productId));
+                await loadProducts();
+                updateProductsDisplay();
+            } catch (error) {
+                console.error('Erro ao deletar produto:', error);
+            }
+        }
+
+        // Orders Management
+        async function loadOrders() {
+            if (!db) return;
+            
+            try {
+                const q = query(collection(db, 'orders'), orderBy('createdAt', 'desc'));
+                const querySnapshot = await getDocs(q);
+                orders = [];
+                querySnapshot.forEach((doc) => {
+                    orders.push({ id: doc.id, ...doc.data() });
+                });
+            } catch (error) {
+                console.error('Erro ao carregar pedidos:', error);
+            }
+        }
+
+        async function addOrder(orderData) {
+            if (!db) return;
+            
+            try {
+                const docRef = await addDoc(collection(db, 'orders'), {
+                    ...orderData,
+                    createdAt: new Date(),
+                    status: 'pending'
+                });
+                await loadOrders();
+                updateDashboardStats();
+                return docRef.id;
+            } catch (error) {
+                console.error('Erro ao adicionar pedido:', error);
+            }
+        }
+
+        async function updateOrderStatus(orderId, newStatus) {
+            if (!db) return;
+            
+            try {
+                await updateDoc(doc(db, 'orders', orderId), {
+                    status: newStatus,
+                    updatedAt: new Date()
+                });
+                await loadOrders();
+                updateDashboardStats();
+            } catch (error) {
+                console.error('Erro ao atualizar status do pedido:', error);
+            }
+        }
+
+        // Customers Management
+        async function loadCustomers() {
+            if (!db) return;
+            
+            try {
+                const querySnapshot = await getDocs(collection(db, 'customers'));
+                customers = [];
+                querySnapshot.forEach((doc) => {
+                    customers.push({ id: doc.id, ...doc.data() });
+                });
+            } catch (error) {
+                console.error('Erro ao carregar clientes:', error);
+            }
+        }
+
+        async function addCustomer(customerData) {
+            if (!db) return;
+            
+            try {
+                const docRef = await addDoc(collection(db, 'customers'), {
+                    ...customerData,
+                    createdAt: new Date()
+                });
+                await loadCustomers();
+                return docRef.id;
+            } catch (error) {
+                console.error('Erro ao adicionar cliente:', error);
+            }
+        }
+
+        // Newsletter Management
+        async function loadNewsletterSubscribers() {
+            if (!db) return;
+            
+            try {
+                const q = query(collection(db, 'newsletter'), orderBy('subscribedAt', 'desc'));
+                const querySnapshot = await getDocs(q);
+                newsletterSubscribers = [];
+                querySnapshot.forEach((doc) => {
+                    newsletterSubscribers.push({ id: doc.id, ...doc.data() });
+                });
+            } catch (error) {
+                console.error('Erro ao carregar newsletter:', error);
+            }
+        }
+
+        async function addNewsletterSubscriber(email) {
+            // Demo mode - simulate newsletter subscription
+            console.log('📧 Newsletter Demo:', email);
+            
+            // Check if email already exists in demo data
+            const existingSubscriber = newsletterSubscribers.find(sub => sub.email === email);
+            if (existingSubscriber) {
+                alert('Este e-mail já está inscrito na nossa newsletter!');
+                return;
+            }
+            
+            // Add to demo data
+            const newSubscriber = {
+                id: 'demo' + Date.now(),
+                email: email,
+                subscribedAt: new Date(),
+                isActive: true
+            };
+            
+            newsletterSubscribers.unshift(newSubscriber);
+            updateNewsletterStats();
+            alert('✅ Obrigado por se inscrever! (Modo Demo)\nEm produção, você receberia nossas novidades por email.');
+            
+            return newSubscriber.id;
+        }
+
+        // Site Settings Management
+        async function loadSiteSettings() {
+            if (!db) return;
+            
+            try {
+                const querySnapshot = await getDocs(collection(db, 'settings'));
+                querySnapshot.forEach((doc) => {
+                    siteSettings = { id: doc.id, ...doc.data() };
+                });
+            } catch (error) {
+                console.error('Erro ao carregar configurações:', error);
+            }
+        }
+
+        async function updateSiteSettings(settingsData) {
+            if (!db) return;
+            
+            try {
+                if (siteSettings.id) {
+                    await updateDoc(doc(db, 'settings', siteSettings.id), settingsData);
+                } else {
+                    await addDoc(collection(db, 'settings'), settingsData);
+                }
+                await loadSiteSettings();
+            } catch (error) {
+                console.error('Erro ao atualizar configurações:', error);
+            }
+        }
+
+        // Image Upload (Alternative when Storage limit reached)
+        async function uploadImage(file, path) {
+            if (!storage) {
+                console.error('Firebase Storage não configurado');
+                // Use alternative: generate image URL for demo
+                const fileName = file.name.replace(/\.[^/.]+$/, "");
+                return `keys/${path}-${fileName}?prompt=${encodeURIComponent('Product image for ' + fileName)}`;
+            }
+            
+            try {
+                const imageRef = ref(storage, `${path}/${Date.now()}_${file.name}`);
+                const snapshot = await uploadBytes(imageRef, file);
+                const downloadURL = await getDownloadURL(snapshot.ref);
+                return downloadURL;
+            } catch (error) {
+                console.error('⚠️ Storage limit reached. Using alternative image generation.');
+                console.log('💡 Consider upgrading to Blaze plan for full storage features.');
+                
+                // Fallback: generate image URL
+                const fileName = file.name.replace(/\.[^/.]+$/, "");
+                return `keys/${path}-${fileName}-${Date.now()}?prompt=${encodeURIComponent('Product image for ' + fileName)}`;
+            }
+        }
+
+        // Authentication
+        async function loginAdmin(email, password) {
+            if (!auth) {
+                // Demo login for when Firebase is not configured
+                if (email === 'admin@vmary.com' && password === 'admin123') {
+                    isAdminLoggedIn = true;
+                    document.getElementById('admin-login-modal').classList.add('hidden');
+                    document.getElementById('admin-panel').classList.remove('hidden');
+                    showAdminSection('dashboard');
+                    return true;
+                }
+                alert('Credenciais inválidas. Use: admin@vmary.com / admin123');
+                return false;
+            }
+            
+            try {
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+                
+                // Check if user is admin (you can implement role-based access)
+                isAdminLoggedIn = true;
+                document.getElementById('admin-login-modal').classList.add('hidden');
+                document.getElementById('admin-panel').classList.remove('hidden');
+                showAdminSection('dashboard');
+                
+                console.log('✅ Login admin realizado com sucesso');
+                return true;
+            } catch (error) {
+                console.error('Erro no login:', error);
+                alert('Credenciais inválidas. Verifique email e senha.');
+                return false;
+            }
+        }
+
+        async function logoutAdmin() {
+            if (auth) {
+                try {
+                    await signOut(auth);
+                } catch (error) {
+                    console.error('Erro no logout:', error);
+                }
+            }
+            
+            isAdminLoggedIn = false;
+            document.getElementById('admin-panel').classList.add('hidden');
+            console.log('✅ Logout realizado com sucesso');
+        }
+
+        // =================== UI UPDATE FUNCTIONS ===================
+
+        function updateProductsDisplay() {
+            const productsGrid = document.querySelector('#admin-products .grid');
+            if (!productsGrid) return;
+            
+            // Keep first 3 demo products and add real ones
+            const demoProducts = productsGrid.innerHTML;
+            
+            if (products.length > 0) {
+                let realProductsHTML = '';
+                products.forEach(product => {
+                    realProductsHTML += `
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                            <img src="${product.imageUrl || 'keys/product-placeholder?prompt=Product%20placeholder'}" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="font-semibold text-gray-900 mb-2">${product.name}</h3>
+                                <p class="text-gray-600 text-sm mb-3">${product.collection || 'Coleção'}</p>
+                                <div class="flex justify-between items-center mb-4">
+                                    <span class="text-lg font-bold text-sage-600">R$ ${product.price}</span>
+                                    <span class="bg-${product.isActive ? 'green' : 'red'}-100 text-${product.isActive ? 'green' : 'red'}-800 px-2 py-1 rounded-full text-xs">
+                                        ${product.isActive ? 'Ativo' : 'Inativo'}
+                                    </span>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button onclick="editProduct('${product.id}')" class="flex-1 bg-sage-100 text-sage-700 py-2 px-4 rounded-lg text-sm font-medium hover:bg-sage-200 transition-colors">
+                                        Editar
+                                    </button>
+                                    <button onclick="deleteProductConfirm('${product.id}')" class="bg-gray-100 text-gray-600 py-2 px-4 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                productsGrid.innerHTML = demoProducts + realProductsHTML;
+            }
+        }
+
+        function updateDashboardStats() {
+            // Update sales
+            const totalSales = orders.reduce((sum, order) => sum + (order.total || 0), 0);
+            const salesElement = document.querySelector('#admin-dashboard .text-2xl');
+            if (salesElement) {
+                salesElement.textContent = `R$ ${totalSales.toLocaleString('pt-BR')}`;
+            }
+            
+            // Update orders count
+            const ordersElements = document.querySelectorAll('#admin-dashboard .text-2xl');
+            if (ordersElements[1]) {
+                ordersElements[1].textContent = orders.length.toString();
+            }
+            
+            // Update customers count
+            if (ordersElements[2]) {
+                ordersElements[2].textContent = customers.length.toString();
+            }
+            
+            // Update newsletter count
+            if (ordersElements[3]) {
+                ordersElements[3].textContent = newsletterSubscribers.length.toString();
+            }
+        }
+
+        function updateNewsletterStats() {
+            const statsElements = document.querySelectorAll('#admin-newsletter .text-3xl');
+            if (statsElements[0]) {
+                statsElements[0].textContent = newsletterSubscribers.length.toString();
+            }
+            
+            // Update recent subscribers
+            const recentList = document.querySelector('#admin-newsletter .space-y-3');
+            if (recentList && newsletterSubscribers.length > 0) {
+                const recentHTML = newsletterSubscribers.slice(0, 5).map(sub => {
+                    // Handle different date formats (Firebase Timestamp vs JavaScript Date)
+                    let dateStr = 'Data não disponível';
+                    if (sub.subscribedAt) {
+                        try {
+                            if (typeof sub.subscribedAt.toDate === 'function') {
+                                // Firebase Timestamp
+                                dateStr = sub.subscribedAt.toDate().toLocaleDateString('pt-BR');
+                            } else if (sub.subscribedAt instanceof Date) {
+                                // JavaScript Date
+                                dateStr = sub.subscribedAt.toLocaleDateString('pt-BR');
+                            } else if (typeof sub.subscribedAt === 'string') {
+                                // String date
+                                dateStr = new Date(sub.subscribedAt).toLocaleDateString('pt-BR');
+                            }
+                        } catch (error) {
+                            console.warn('Erro ao formatar data:', error);
+                            dateStr = 'Data inválida';
+                        }
+                    }
+                    
+                    return `
+                        <div class="flex items-center justify-between py-2">
+                            <div>
+                                <div class="font-medium">${sub.email}</div>
+                                <div class="text-sm text-gray-500">${dateStr}</div>
+                            </div>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">
+                                ${sub.isActive ? 'Ativo' : 'Inativo'}
+                            </span>
+                        </div>
+                    `;
+                }).join('');
+                
+                recentList.innerHTML = recentHTML;
+            }
+        }
+
+        function loadDemoData() {
+            console.log('📝 Carregando dados demo...');
+            
+            // Demo data when Firebase is not configured or has errors
+            products = [
+                {
+                    id: 'demo1',
+                    name: 'Scrub Signature Demo',
+                    collection: 'Essence Collection',
+                    price: 289,
+                    isActive: true,
+                    imageUrl: 'keys/demo-scrub-signature?prompt=Premium%20medical%20scrub%20sage%20green'
+                },
+                {
+                    id: 'demo2', 
+                    name: 'Luxe Lab Coat Demo',
+                    collection: 'Luxe Collection',
+                    price: 389,
+                    isActive: true,
+                    imageUrl: 'keys/demo-lab-coat?prompt=Premium%20medical%20lab%20coat%20white'
+                }
+            ];
+            
+            orders = [
+                { id: 'demo1', total: 289, status: 'delivered', createdAt: new Date('2024-06-25') },
+                { id: 'demo2', total: 389, status: 'processing', createdAt: new Date('2024-06-28') },
+                { id: 'demo3', total: 578, status: 'shipped', createdAt: new Date('2024-06-30') }
+            ];
+            
+            customers = [
+                { id: 'demo1', name: 'Dra. Ana Silva', email: 'ana.silva@hospital.com', createdAt: new Date('2024-06-01') },
+                { id: 'demo2', name: 'Enf. Carlos Santos', email: 'carlos.santos@clinica.com', createdAt: new Date('2024-06-15') }
+            ];
+            
+            newsletterSubscribers = [
+                { id: 'demo1', email: 'newsletter@example.com', subscribedAt: new Date('2024-06-01'), isActive: true },
+                { id: 'demo2', email: 'contato@clinica.com', subscribedAt: new Date('2024-06-20'), isActive: true }
+            ];
+            
+            siteSettings = {
+                siteName: 'VMARY | Moda Médica Premium',
+                contactEmail: 'atendimento@vmary.com.br',
+                description: 'A revolução da moda médica'
+            };
+            
+            console.log('✅ Dados demo carregados com sucesso!');
+        }
+
+        // =================== ADMIN FUNCTIONS ===================
+
+        window.editProduct = function(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                // Open edit modal (implementation depends on your UI)
+                const newName = prompt('Nome do produto:', product.name);
+                const newPrice = prompt('Preço:', product.price);
+                
+                if (newName && newPrice) {
+                    updateProduct(productId, {
+                        name: newName,
+                        price: parseFloat(newPrice)
+                    });
+                }
+            }
+        };
+
+        window.deleteProductConfirm = function(productId) {
+            if (confirm('Tem certeza que deseja deletar este produto?')) {
+                deleteProduct(productId);
+            }
+        };
+
+        window.openProductModal = function() {
+            const name = prompt('Nome do produto:');
+            const collection = prompt('Coleção:');
+            const price = prompt('Preço:');
+            const description = prompt('Descrição:');
+            
+            if (name && price) {
+                addProduct({
+                    name: name,
+                    collection: collection || 'Geral',
+                    price: parseFloat(price),
+                    description: description || '',
+                    isActive: true,
+                    imageUrl: `keys/new-product-${Date.now()}?prompt=${encodeURIComponent(name + ' medical fashion product')}`
+                });
+            }
+        };
+
+        // =================== GLOBAL FUNCTIONS ===================
+
+        // Make functions globally available
+        window.showAdminSection = function(section) {
+            document.querySelectorAll('.admin-section').forEach(el => {
+                el.classList.add('hidden');
+            });
+            
+            document.querySelectorAll('.admin-nav-btn').forEach(btn => {
+                btn.classList.remove('bg-sage-100', 'text-sage-700');
+            });
+            
+            document.getElementById(`admin-${section}`).classList.remove('hidden');
+            
+            if (event && event.target) {
+                event.target.closest('.admin-nav-btn').classList.add('bg-sage-100', 'text-sage-700');
+            }
+        };
+
+        window.logoutAdmin = logoutAdmin;
+
+        window.closeAdminLogin = function() {
+            document.getElementById('admin-login-modal').classList.add('hidden');
+        };
+
+        // Secret admin access (Ctrl + Shift + A)
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+                e.preventDefault();
+                if (!isAdminLoggedIn) {
+                    document.getElementById('admin-login-modal').classList.remove('hidden');
+                } else {
+                    document.getElementById('admin-panel').classList.toggle('hidden');
+                }
+            }
+        });
+
+        // Admin login form
+        document.getElementById('admin-login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('admin-username').value;
+            const password = document.getElementById('admin-password').value;
+            
+            loginAdmin(email, password);
+        });
+
+        // Admin navigation
+        window.showAdminSection = function(section) {
+            // Hide all sections
+            document.querySelectorAll('.admin-section').forEach(el => {
+                el.classList.add('hidden');
+            });
+            
+            // Remove active class from all nav buttons
+            document.querySelectorAll('.admin-nav-btn').forEach(btn => {
+                btn.classList.remove('bg-sage-100', 'text-sage-700');
+            });
+            
+            // Show selected section
+            document.getElementById(`admin-${section}`).classList.remove('hidden');
+            
+            // Add active class to current nav button
+            event.target.closest('.admin-nav-btn').classList.add('bg-sage-100', 'text-sage-700');
+        };
+
+        // Logout function
+        window.logoutAdmin = function() {
+            isAdminLoggedIn = false;
+            document.getElementById('admin-panel').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        };
+
+        // Close admin login
+        window.closeAdminLogin = function() {
+            document.getElementById('admin-login-modal').classList.add('hidden');
+        };
+
+        // Demo data and functions
+        window.openProductModal = function() {
+            alert('Funcionalidade de adicionar produto seria implementada aqui.');
+        };
+
+        // Regular site functionality
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = 80;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.product-card, .glass-card').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Simple cart functionality
+        let cartCount = 0;
+        const cartBtn = document.getElementById('cart-btn');
+        const cartCountEl = cartBtn.querySelector('span');
+        
+        // Newsletter form
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            if (email) {
+                addNewsletterSubscriber(email);
+                this.reset();
+            }
+        });
+        
+        // Add some interactive elements
+        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (this.textContent.includes('Explorar') || this.textContent.includes('Ver Detalhes')) {
+                    window.location.hash = '#collections';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
