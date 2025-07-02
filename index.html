@@ -3,8 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VMARY | Moda Médica Premium</title>
-    <meta name="description" content="VMARY - A revolução da moda médica. Vestuário premium para profissionais da saúde que valorizam estilo, conforto e inovação.">
+    <title>VMARY | Uniforme Médico Premium - Scrubs e Jalecos de Alta Qualidade</title>
+    <meta name="description" content="Descubra a VMARY: uniformes médicos premium, scrubs elegantes e jalecos sustentáveis. Moda médica de alta qualidade para profissionais exigentes. Frete grátis Brasil.">
+    <meta name="keywords" content="uniforme médico premium, scrub médico, jaleco feminino, roupa médica elegante, VMARY, uniforme hospitalar, scrub antimicrobiano">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="VMARY">
+    <link rel="canonical" href="https://vmary.com.br/">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="VMARY | Uniforme Médico Premium - Scrubs e Jalecos de Alta Qualidade">
+    <meta property="og:description" content="Descubra a VMARY: uniformes médicos premium, scrubs elegantes e jalecos sustentáveis. Moda médica de alta qualidade para profissionais exigentes.">
+    <meta property="og:image" content="https://vmary.com.br/og-image.jpg">
+    <meta property="og:url" content="https://vmary.com.br/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="VMARY">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VMARY | Uniforme Médico Premium">
+    <meta name="twitter:description" content="Uniformes médicos premium, scrubs elegantes e jalecos sustentáveis para profissionais da saúde.">
+    <meta name="twitter:image" content="https://vmary.com.br/twitter-image.jpg">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +30,157 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getFirestore, collection, addDoc, getDocs, updateDoc, deleteDoc, doc, onSnapshot } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+        
+        // CONFIGURAÇÃO FIREBASE VMARY
+        const firebaseConfig = {
+            apiKey: "AIzaSyBG6vbuSGFKtHdDrrvxWNCyYf5YDuOAni0",
+            authDomain: "vmary-site.firebaseapp.com",
+            projectId: "vmary-site",
+            storageBucket: "vmary-site.firebasestorage.app",
+            messagingSenderId: "131440132128",
+            appId: "1:131440132128:web:9bcfeaad77343233e9fc45",
+            measurementId: "G-HZ5KF8E8DQ"
+        };
+        
+        // Inicializar Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        
+        // Disponibilizar globalmente
+        window.vmaryFirebase = { app, db, collection, addDoc, getDocs, updateDoc, deleteDoc, doc, onSnapshot };
+        
+        console.log('🔥 Firebase inicializado com sucesso!');
+    </script>
+
+    <!-- Schema Markup - Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "VMARY",
+      "description": "Moda médica premium - uniformes, scrubs e jalecos de alta qualidade",
+      "url": "https://vmary.com.br",
+      "logo": "https://vmary.com.br/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+55-11-99999-0000",
+        "contactType": "customer support",
+        "email": "atendimento@vmary.com.br",
+        "availableLanguage": "Portuguese"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "BR",
+        "addressRegion": "SP",
+        "addressLocality": "São Paulo"
+      },
+      "sameAs": [
+        "https://instagram.com/vmary.medical",
+        "https://facebook.com/vmary.medical",
+        "https://linkedin.com/company/vmary"
+      ],
+      "founder": "VMARY Team",
+      "foundingDate": "2019",
+      "numberOfEmployees": "10-50"
+    }
+    </script>
+
+    <!-- Schema Markup - FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qual o melhor uniforme médico premium do Brasil?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "O Scrub Signature VMARY é reconhecido como o uniforme médico premium líder no Brasil, combinando tecnologia antimicrobiana com design elegante. Nossos scrubs médicos de qualidade são escolhidos por profissionais que valorizam conforto, durabilidade e estilo."
+          }
+        },
+        {
+          "@type": "Question", 
+          "name": "Como escolher o tamanho ideal do scrub médico?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Consulte nosso guia de tamanhos para uniformes médicos. Oferecemos tamanhos de P a GG com corte anatômico para máximo conforto. Nosso jaleco médico feminino possui modelagem específica para valorizar a silhueta profissional."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "O que é tecnologia antimicrobiana em uniformes médicos?", 
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nossos scrubs antimicrobianos possuem tratamento especial que inibe o crescimento de bactérias e microorganismos. Esta tecnologia oferece proteção adicional durante longas jornadas de trabalho, sendo ideal para roupa médica elegante e funcional."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "VMARY oferece uniformes médicos sustentáveis?",
+          "acceptedAnswer": {
+            "@type": "Answer", 
+            "text": "Sim! Nossa coleção Earth oferece jalecos sustentáveis produzidos com tecidos orgânicos certificados. Somos pioneiros em uniforme hospitalar eco-friendly, unindo responsabilidade ambiental com alta qualidade."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Schema Markup - Medical Supply Store -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      "name": "VMARY - Loja de Uniformes Médicos",
+      "@id": "https://vmary.com.br",
+      "image": "https://vmary.com.br/store-image.jpg",
+      "description": "Loja especializada em uniformes médicos premium, scrubs elegantes e jalecos sustentáveis para profissionais da saúde",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "BR",
+        "addressRegion": "SP",
+        "addressLocality": "São Paulo"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-23.5505",
+        "longitude": "-46.6333"
+      },
+      "url": "https://vmary.com.br",
+      "telephone": "+55-11-99999-0000",
+      "email": "atendimento@vmary.com.br",
+      "priceRange": "R$ 200 - R$ 500",
+      "paymentAccepted": ["Credit Card", "Debit Card", "PIX", "Bank Transfer"],
+      "currenciesAccepted": "BRL",
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Uniformes Médicos VMARY",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Scrubs Médicos Premium"
+            }
+          },
+          {
+            "@type": "Offer", 
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Jalecos Médicos Elegantes"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -223,12 +392,13 @@
                         </span>
                     </div>
                     <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-sage-900 leading-tight mb-8">
-                        Onde <span class="text-gradient">elegância</span><br>
+                        <span itemProp="name">VMARY:</span> Onde <span class="text-gradient">elegância</span><br>
                         encontra a <span class="text-gradient">medicina</span>
                     </h1>
                     <p class="text-xl text-sage-600 leading-relaxed mb-10 max-w-lg">
-                        Redescobrindo o vestuário médico através do design sofisticado, 
-                        materiais premium e tecnologia de ponta.
+                        Redescobrindo o <strong>uniforme médico premium</strong> através do design sofisticado, 
+                        materiais premium e tecnologia antimicrobiana de ponta. <strong>Scrubs médicos de qualidade</strong> 
+                        para profissionais que valorizam elegância e funcionalidade.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 mb-12">
                         <button class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg">
@@ -276,10 +446,11 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="text-center mb-20">
                 <h2 class="text-4xl md:text-5xl font-serif font-bold text-sage-900 mb-6">
-                    Nossas Coleções
+                    Nossas Coleções de Uniformes Médicos Premium
                 </h2>
                 <p class="text-xl text-sage-600 max-w-2xl mx-auto">
-                    Cada peça é cuidadosamente projetada para unir funcionalidade médica com elegância contemporânea
+                    Cada <strong>uniforme médico</strong> é cuidadosamente projetado para unir funcionalidade médica com elegância contemporânea. 
+                    Descubra nossos <strong>scrubs médicos de qualidade</strong> e <strong>jalecos premium</strong>.
                 </p>
             </div>
             
@@ -296,8 +467,8 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <h3 class="text-2xl font-serif font-semibold text-sage-900 mb-3">Essence</h3>
-                        <p class="text-sage-600 mb-4">Minimalismo elegante para o dia a dia médico</p>
+                        <h3 class="text-2xl font-serif font-semibold text-sage-900 mb-3">Essence - Scrubs Minimalistas</h3>
+                        <p class="text-sage-600 mb-4">Minimalismo elegante para o dia a dia médico. <strong>Uniforme médico</strong> com design clean e funcional.</p>
                         <div class="text-sage-500 text-sm">A partir de R$ 289</div>
                     </div>
                 </div>
@@ -314,8 +485,8 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <h3 class="text-2xl font-serif font-semibold text-sage-900 mb-3">Luxe</h3>
-                        <p class="text-sage-600 mb-4">Sofisticação máxima para especialistas</p>
+                        <h3 class="text-2xl font-serif font-semibold text-sage-900 mb-3">Luxe - Jalecos Premium</h3>
+                        <p class="text-sage-600 mb-4">Sofisticação máxima para especialistas. <strong>Jaleco médico feminino</strong> e masculino de alta costura.</p>
                         <div class="text-sage-500 text-sm">A partir de R$ 389</div>
                     </div>
                 </div>
@@ -332,8 +503,8 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <h3 class="text-2xl font-serif font-semibold text-sage-900 mb-3">Earth</h3>
-                        <p class="text-sage-600 mb-4">Consciência ambiental e estilo único</p>
+                        <h3 class="text-2xl font-serif font-semibold text-sage-900 mb-3">Earth - Uniformes Sustentáveis</h3>
+                        <p class="text-sage-600 mb-4">Consciência ambiental e estilo único. <strong>Jaleco sustentável</strong> para profissionais conscientes.</p>
                         <div class="text-sage-500 text-sm">A partir de R$ 249</div>
                     </div>
                 </div>
@@ -351,12 +522,13 @@
                             Produto em Destaque
                         </span>
                         <h2 class="text-4xl md:text-5xl font-serif font-bold text-sage-900 mb-6">
-                            Scrub Signature<br>
-                            <span class="text-gradient">Collection</span>
+                            Scrub Signature Premium<br>
+                            <span class="text-gradient">Antimicrobiano</span>
                         </h2>
                         <p class="text-xl text-sage-600 leading-relaxed mb-8">
-                            Nossa peça mais icônica: tecido premium com tecnologia antimicrobiana, 
-                            corte anatômico e acabamentos de alta costura.
+                            Nossa peça mais icônica: <strong>scrub antimicrobiano</strong> com tecido premium, 
+                            corte anatômico e acabamentos de alta costura. O melhor <strong>uniforme médico premium</strong> 
+                            para profissionais exigentes.
                         </p>
                     </div>
                     
@@ -573,6 +745,80 @@
         </div>
     </section>
     
+    <!-- FAQ Section for SEO -->
+    <section class="py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-serif font-bold text-sage-900 mb-6">
+                    Perguntas Frequentes sobre Uniformes Médicos VMARY
+                </h2>
+                <p class="text-xl text-sage-600">
+                    Tire suas dúvidas sobre nossos uniformes médicos premium
+                </p>
+            </div>
+            
+            <div class="space-y-8">
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <h3 class="text-xl font-semibold text-sage-900 mb-3">
+                        Qual o melhor uniforme médico premium do Brasil?
+                    </h3>
+                    <p class="text-sage-600 leading-relaxed">
+                        O <strong>Scrub Signature VMARY</strong> é reconhecido como o <strong>uniforme médico premium</strong> 
+                        líder no Brasil, combinando tecnologia antimicrobiana com design elegante. Nossos 
+                        <strong>scrubs médicos de qualidade</strong> são escolhidos por profissionais que valorizam 
+                        conforto, durabilidade e estilo.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <h3 class="text-xl font-semibold text-sage-900 mb-3">
+                        Como escolher o tamanho ideal do scrub médico?
+                    </h3>
+                    <p class="text-sage-600 leading-relaxed">
+                        Consulte nosso <strong>guia de tamanhos para uniformes médicos</strong>. Oferecemos 
+                        tamanhos de P a GG com corte anatômico para máximo conforto. Nosso <strong>jaleco médico feminino</strong> 
+                        possui modelagem específica para valorizar a silhueta profissional.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <h3 class="text-xl font-semibold text-sage-900 mb-3">
+                        O que é tecnologia antimicrobiana em uniformes médicos?
+                    </h3>
+                    <p class="text-sage-600 leading-relaxed">
+                        Nossos <strong>scrubs antimicrobianos</strong> possuem tratamento especial que inibe 
+                        o crescimento de bactérias e microorganismos. Esta tecnologia oferece proteção adicional 
+                        durante longas jornadas de trabalho, sendo ideal para <strong>roupa médica elegante</strong> 
+                        e funcional.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <h3 class="text-xl font-semibold text-sage-900 mb-3">
+                        VMARY oferece uniformes médicos sustentáveis?
+                    </h3>
+                    <p class="text-sage-600 leading-relaxed">
+                        Sim! Nossa coleção Earth oferece <strong>jalecos sustentáveis</strong> produzidos com 
+                        tecidos orgânicos certificados. Somos pioneiros em <strong>uniforme hospitalar</strong> 
+                        eco-friendly, unindo responsabilidade ambiental com alta qualidade.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <h3 class="text-xl font-semibold text-sage-900 mb-3">
+                        Qual a diferença entre as coleções VMARY?
+                    </h3>
+                    <p class="text-sage-600 leading-relaxed">
+                        <strong>Essence:</strong> Design minimalista para uso diário<br>
+                        <strong>Luxe:</strong> Alta costura para especialistas que buscam elegância máxima<br>
+                        <strong>Earth:</strong> Linha sustentável com materiais orgânicos<br>
+                        Todos mantêm o padrão de <strong>uniforme médico premium</strong> VMARY.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Newsletter -->
     <section class="py-24 bg-gradient-to-br from-sage-700 via-sage-600 to-sage-800">
         <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
@@ -633,31 +879,33 @@
                 
                 <!-- Links -->
                 <div>
-                    <h4 class="font-serif font-semibold text-lg mb-6">Coleções</h4>
+                    <h4 class="font-serif font-semibold text-lg mb-6">Uniformes Médicos Premium</h4>
                     <ul class="space-y-3 text-sage-300">
-                        <li><a href="#" class="hover:text-white transition-colors">Essence</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Luxe</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Earth</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Limited Edition</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Acessórios</a></li>
+                        <li><a href="/colecoes/essence-scrubs-minimalistas" class="hover:text-white transition-colors">Scrubs Essence Minimalistas</a></li>
+                        <li><a href="/colecoes/luxe-jalecos-premium" class="hover:text-white transition-colors">Jalecos Luxe Premium</a></li>
+                        <li><a href="/colecoes/earth-uniformes-sustentaveis" class="hover:text-white transition-colors">Uniformes Earth Sustentáveis</a></li>
+                        <li><a href="/produtos/scrub-signature-antimicrobiano" class="hover:text-white transition-colors">Scrub Signature Antimicrobiano</a></li>
+                        <li><a href="/acessorios-medicos" class="hover:text-white transition-colors">Acessórios Médicos</a></li>
                     </ul>
                 </div>
                 
                 <!-- Support -->
                 <div>
-                    <h4 class="font-serif font-semibold text-lg mb-6">Suporte</h4>
+                    <h4 class="font-serif font-semibold text-lg mb-6">Atendimento & Suporte</h4>
                     <ul class="space-y-3 text-sage-300">
-                        <li><a href="#" class="hover:text-white transition-colors">Guia de Tamanhos</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Cuidados</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Trocas e Devoluções</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Contato</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="/guia-tamanhos-uniforme-medico" class="hover:text-white transition-colors">Guia de Tamanhos Uniforme Médico</a></li>
+                        <li><a href="/como-cuidar-uniforme-medico" class="hover:text-white transition-colors">Como Cuidar do Uniforme Médico</a></li>
+                        <li><a href="/trocas-devolucoes" class="hover:text-white transition-colors">Trocas e Devoluções</a></li>
+                        <li><a href="/contato" class="hover:text-white transition-colors">Fale Conosco</a></li>
+                        <li><a href="/faq-uniformes-medicos" class="hover:text-white transition-colors">Perguntas Frequentes</a></li>
                     </ul>
                     
                     <div class="mt-8 space-y-2 text-sage-300 text-sm">
-                        <div>atendimento@vmary.com.br</div>
-                        <div>(11) 9999-9999</div>
-                        <div>Seg-Sex: 9h às 18h</div>
+                        <div>📧 atendimento@vmary.com.br</div>
+                        <div>📱 (11) 9999-9999</div>
+                        <div>🕐 Seg-Sex: 9h às 18h</div>
+                        <div>📍 São Paulo, SP - Brasil</div>
+                        <div>🚚 Frete Grátis acima de R$ 300</div>
                     </div>
                 </div>
             </div>
@@ -1347,17 +1595,279 @@
         let customers = [];
         let newsletterSubscribers = [];
         let siteSettings = {};
+        let vmaryPersistence;
+
+        // Sistema de Persistência Híbrido
+        class VMARYPersistence {
+            constructor() {
+                this.storageKey = 'vmary-admin-data';
+                this.isOnline = navigator.onLine;
+                this.initializeSystem();
+                this.setupOfflineDetection();
+            }
+
+            async initializeSystem() {
+                console.log('🚀 Inicializando sistema de persistência VMARY...');
+                
+                try {
+                    if (this.isOnline && window.vmaryFirebase) {
+                        await this.loadFromFirebase();
+                        console.log('🔥 Dados carregados do Firebase');
+                    } else {
+                        this.loadFromLocalStorage();
+                        console.log('💾 Dados carregados do LocalStorage (modo offline)');
+                    }
+                } catch (error) {
+                    console.warn('⚠️ Erro ao carregar do Firebase, usando LocalStorage:', error);
+                    this.loadFromLocalStorage();
+                }
+                
+                this.startAutoSync();
+                updateAllDisplays();
+            }
+
+            setupOfflineDetection() {
+                window.addEventListener('online', () => {
+                    this.isOnline = true;
+                    console.log('🌐 Voltou online - sincronizando dados...');
+                    this.syncToFirebase();
+                });
+
+                window.addEventListener('offline', () => {
+                    this.isOnline = false;
+                    console.log('📱 Modo offline ativado - dados salvos localmente');
+                });
+            }
+
+            async loadFromFirebase() {
+                const { db, getDocs, collection } = window.vmaryFirebase;
+                
+                try {
+                    // Carregar produtos
+                    const productsSnapshot = await getDocs(collection(db, 'products'));
+                    if (!productsSnapshot.empty) {
+                        products = productsSnapshot.docs.map(doc => ({
+                            id: doc.id,
+                            ...doc.data(),
+                            createdAt: doc.data().createdAt?.toDate() || new Date(),
+                            updatedAt: doc.data().updatedAt?.toDate() || new Date()
+                        }));
+                    }
+
+                    // Carregar clientes
+                    const customersSnapshot = await getDocs(collection(db, 'customers'));
+                    if (!customersSnapshot.empty) {
+                        customers = customersSnapshot.docs.map(doc => ({
+                            id: doc.id,
+                            ...doc.data(),
+                            createdAt: doc.data().createdAt?.toDate() || new Date(),
+                            lastOrder: doc.data().lastOrder?.toDate() || new Date()
+                        }));
+                    }
+
+                    // Carregar pedidos
+                    const ordersSnapshot = await getDocs(collection(db, 'orders'));
+                    if (!ordersSnapshot.empty) {
+                        orders = ordersSnapshot.docs.map(doc => ({
+                            id: doc.id,
+                            ...doc.data(),
+                            createdAt: doc.data().createdAt?.toDate() || new Date(),
+                            updatedAt: doc.data().updatedAt?.toDate() || new Date()
+                        }));
+                    }
+
+                    // Carregar newsletter
+                    const newsletterSnapshot = await getDocs(collection(db, 'newsletter'));
+                    if (!newsletterSnapshot.empty) {
+                        newsletterSubscribers = newsletterSnapshot.docs.map(doc => ({
+                            id: doc.id,
+                            ...doc.data(),
+                            subscribedAt: doc.data().subscribedAt?.toDate() || new Date()
+                        }));
+                    }
+
+                    // Se não há dados no Firebase, carregar dados demo
+                    if (products.length === 0 && customers.length === 0 && orders.length === 0) {
+                        this.loadDemoData();
+                        this.syncToFirebase(); // Sync dados demo para Firebase
+                    }
+
+                    // Salvar backup local
+                    this.saveToLocalStorage();
+                    
+                } catch (error) {
+                    console.error('❌ Erro ao carregar do Firebase:', error);
+                    throw error;
+                }
+            }
+
+            async syncToFirebase() {
+                if (!this.isOnline || !window.vmaryFirebase) return;
+
+                const { db, collection, addDoc } = window.vmaryFirebase;
+                
+                try {
+                    console.log('🔄 Sincronizando dados com Firebase...');
+                    
+                    // Sync apenas novos itens (que têm IDs temporários)
+                    for (const product of products) {
+                        if (product.id.startsWith('prod-') || product.id.startsWith('demo')) {
+                            await addDoc(collection(db, 'products'), {
+                                ...product,
+                                id: undefined
+                            });
+                        }
+                    }
+
+                    for (const customer of customers) {
+                        if (customer.id.startsWith('cust-')) {
+                            await addDoc(collection(db, 'customers'), {
+                                ...customer,
+                                id: undefined
+                            });
+                        }
+                    }
+
+                    for (const order of orders) {
+                        if (order.id.startsWith('order-')) {
+                            await addDoc(collection(db, 'orders'), {
+                                ...order,
+                                id: undefined
+                            });
+                        }
+                    }
+
+                    for (const subscriber of newsletterSubscribers) {
+                        if (subscriber.id.startsWith('news-')) {
+                            await addDoc(collection(db, 'newsletter'), {
+                                ...subscriber,
+                                id: undefined
+                            });
+                        }
+                    }
+
+                    console.log('✅ Sincronização completa!');
+                    
+                } catch (error) {
+                    console.error('❌ Erro na sincronização:', error);
+                }
+            }
+
+            loadFromLocalStorage() {
+                try {
+                    const savedData = localStorage.getItem(this.storageKey);
+                    if (savedData) {
+                        const parsedData = JSON.parse(savedData);
+                        this.restoreDates(parsedData);
+                        
+                        products = parsedData.products || [];
+                        customers = parsedData.customers || [];
+                        orders = parsedData.orders || [];
+                        newsletterSubscribers = parsedData.newsletterSubscribers || [];
+                        
+                        return true;
+                    } else {
+                        this.loadDemoData();
+                        return false;
+                    }
+                } catch (error) {
+                    console.error('❌ Erro ao carregar LocalStorage:', error);
+                    this.loadDemoData();
+                    return false;
+                }
+            }
+
+            saveToLocalStorage() {
+                const dataToSave = {
+                    products: products,
+                    customers: customers,
+                    orders: orders,
+                    newsletterSubscribers: newsletterSubscribers,
+                    timestamp: new Date().toISOString(),
+                    version: '2.0'
+                };
+
+                try {
+                    localStorage.setItem(this.storageKey, JSON.stringify(dataToSave));
+                    return true;
+                } catch (error) {
+                    console.error('❌ Erro ao salvar no LocalStorage:', error);
+                    return false;
+                }
+            }
+
+            async addNewsletterSubscriber(email) {
+                const newSubscriber = {
+                    id: 'news-' + Date.now(),
+                    email: email,
+                    subscribedAt: new Date(),
+                    isActive: true
+                };
+
+                newsletterSubscribers.unshift(newSubscriber);
+                this.saveToLocalStorage();
+
+                if (this.isOnline && window.vmaryFirebase) {
+                    try {
+                        const { db, collection, addDoc } = window.vmaryFirebase;
+                        await addDoc(collection(db, 'newsletter'), newSubscriber);
+                        console.log('✅ Newsletter salva no Firebase');
+                    } catch (error) {
+                        console.warn('⚠️ Erro ao salvar no Firebase, salvo localmente:', error);
+                    }
+                }
+
+                updateNewsletterDisplay();
+                updateDashboardStats();
+                return newSubscriber;
+            }
+
+            restoreDates(data) {
+                ['products', 'customers', 'orders', 'newsletterSubscribers'].forEach(collection => {
+                    if (data[collection]) {
+                        data[collection].forEach(item => {
+                            ['createdAt', 'updatedAt', 'lastOrder', 'subscribedAt'].forEach(field => {
+                                if (item[field]) {
+                                    item[field] = new Date(item[field]);
+                                }
+                            });
+                        });
+                    }
+                });
+            }
+
+            loadDemoData() {
+                loadDemoData(); // Chama a função existente
+                this.saveToLocalStorage();
+            }
+
+            startAutoSync() {
+                setInterval(() => {
+                    this.saveToLocalStorage();
+                    console.log('💾 Auto-save executado');
+                }, 30000);
+
+                setInterval(() => {
+                    if (this.isOnline) {
+                        this.syncToFirebase();
+                    }
+                }, 300000);
+            }
+        }
 
         // Initialize data on page load
         initializeVMARY();
 
         function initializeVMARY() {
             console.log('🚀 Inicializando VMARY...');
-            console.log('🎯 Modo Demo Ativado - Sistema 100% Funcional');
+            console.log('🎯 Sistema Híbrido Firebase + LocalStorage');
             
-            loadDemoData();
-            updateAllDisplays();
-            console.log('✅ VMARY inicializado com sucesso!');
+            // Aguardar Firebase carregar
+            setTimeout(() => {
+                vmaryPersistence = new VMARYPersistence();
+                createStatusIndicator();
+                console.log('✅ VMARY inicializado com sucesso!');
+            }, 1000);
         }
 
         function loadDemoData() {
@@ -2045,34 +2555,26 @@
             });
         });
         
-        // Newsletter form
+        // Newsletter form com Firebase
         document.getElementById('newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const email = document.getElementById('newsletter-email').value;
             
             if (email) {
-                // Check if email already exists
                 const existingSubscriber = newsletterSubscribers.find(sub => sub.email === email);
                 if (existingSubscriber) {
                     alert('Este e-mail já está inscrito na nossa newsletter!');
                     return;
                 }
                 
-                // Add to newsletter
-                const newSubscriber = {
-                    id: 'news-' + Date.now(),
-                    email: email,
-                    subscribedAt: new Date(),
-                    isActive: true
-                };
-                
-                newsletterSubscribers.unshift(newSubscriber);
-                updateNewsletterDisplay();
-                updateDashboardStats();
-                
-                this.reset();
-                alert('✅ Obrigado por se inscrever!\nVocê receberá nossas novidades em breve.');
-                console.log('📧 Nova inscrição na newsletter:', email);
+                if (vmaryPersistence) {
+                    vmaryPersistence.addNewsletterSubscriber(email);
+                    this.reset();
+                    alert('✅ Obrigado por se inscrever!\nVocê receberá nossas novidades em breve.');
+                    console.log('📧 Nova inscrição na newsletter:', email);
+                } else {
+                    alert('⚠️ Sistema carregando. Tente novamente em alguns segundos.');
+                }
             }
         });
         
@@ -2097,6 +2599,32 @@
                 }
             });
         });
+
+        // Status Indicator
+        function createStatusIndicator() {
+            const indicator = document.createElement('div');
+            indicator.id = 'connection-status';
+            indicator.className = 'fixed top-24 right-4 z-40 px-3 py-1 rounded-full text-xs font-medium';
+            
+            function updateStatus() {
+                if (navigator.onLine && window.vmaryFirebase) {
+                    indicator.textContent = '🔥 Firebase Online';
+                    indicator.className = 'fixed top-24 right-4 z-40 px-3 py-1 rounded-full text-xs font-medium bg-green-500 text-white shadow-lg';
+                } else if (navigator.onLine) {
+                    indicator.textContent = '🌐 Online';
+                    indicator.className = 'fixed top-24 right-4 z-40 px-3 py-1 rounded-full text-xs font-medium bg-yellow-500 text-white shadow-lg';
+                } else {
+                    indicator.textContent = '📱 Offline';
+                    indicator.className = 'fixed top-24 right-4 z-40 px-3 py-1 rounded-full text-xs font-medium bg-red-500 text-white shadow-lg';
+                }
+            }
+            
+            updateStatus();
+            window.addEventListener('online', updateStatus);
+            window.addEventListener('offline', updateStatus);
+            
+            document.body.appendChild(indicator);
+        }
     </script>
 </body>
 </html>
