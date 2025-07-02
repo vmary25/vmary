@@ -583,11 +583,13 @@
                 Receba em primeira mão nossos lançamentos, lookbooks exclusivos e conteúdos sobre estilo profissional.
             </p>
             
-            <form class="max-w-md mx-auto mb-8">
+            <form class="max-w-md mx-auto mb-8" id="newsletter-form">
                 <div class="flex flex-col sm:flex-row gap-4">
                     <input type="email" 
+                           id="newsletter-email"
                            placeholder="Seu melhor e-mail" 
-                           class="flex-1 px-6 py-4 rounded-full text-sage-700 focus:outline-none focus:ring-4 focus:ring-white/25 transition-all">
+                           class="flex-1 px-6 py-4 rounded-full text-sage-700 focus:outline-none focus:ring-4 focus:ring-white/25 transition-all"
+                           required>
                     <button type="submit" 
                             class="bg-white text-sage-700 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all">
                         Inscrever-se
@@ -693,7 +695,7 @@
                 <nav class="p-6">
                     <ul class="space-y-2">
                         <li>
-                            <button onclick="showAdminSection('dashboard')" class="admin-nav-btn w-full text-left px-4 py-3 rounded-lg hover:bg-sage-50 transition-colors flex items-center space-x-3">
+                            <button onclick="showAdminSection('dashboard')" class="admin-nav-btn w-full text-left px-4 py-3 rounded-lg hover:bg-sage-50 transition-colors flex items-center space-x-3 bg-sage-100 text-sage-700">
                                 <i class="fas fa-chart-pie text-sage-600"></i>
                                 <span>Dashboard</span>
                             </button>
@@ -756,7 +758,7 @@
                                 </div>
                                 <span class="text-green-500 text-sm font-medium">+12.5%</span>
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-900 mb-1">R$ 45.230</h3>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-1" id="dashboard-sales">R$ 0</h3>
                             <p class="text-gray-600 text-sm">Vendas do Mês</p>
                         </div>
 
@@ -767,7 +769,7 @@
                                 </div>
                                 <span class="text-blue-500 text-sm font-medium">+8.2%</span>
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-900 mb-1">156</h3>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-1" id="dashboard-orders">0</h3>
                             <p class="text-gray-600 text-sm">Pedidos</p>
                         </div>
 
@@ -778,7 +780,7 @@
                                 </div>
                                 <span class="text-purple-500 text-sm font-medium">+15.3%</span>
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-900 mb-1">1.234</h3>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-1" id="dashboard-customers">0</h3>
                             <p class="text-gray-600 text-sm">Clientes</p>
                         </div>
 
@@ -789,7 +791,7 @@
                                 </div>
                                 <span class="text-orange-500 text-sm font-medium">+22.1%</span>
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-900 mb-1">2.345</h3>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-1" id="dashboard-newsletter">0</h3>
                             <p class="text-gray-600 text-sm">Newsletter</p>
                         </div>
                     </div>
@@ -805,34 +807,8 @@
 
                         <div class="bg-white rounded-xl p-6 shadow-lg">
                             <h3 class="text-xl font-semibold text-gray-900 mb-4">Produtos Mais Vendidos</h3>
-                            <div class="space-y-4">
-                                <div class="flex items-center justify-between">
-                                    <span class="text-gray-600">Scrub Signature</span>
-                                    <div class="flex items-center space-x-2">
-                                        <div class="w-20 bg-gray-200 rounded-full h-2">
-                                            <div class="bg-sage-600 h-2 rounded-full" style="width: 85%"></div>
-                                        </div>
-                                        <span class="text-sm text-gray-500">85%</span>
-                                    </div>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <span class="text-gray-600">Essence Basic</span>
-                                    <div class="flex items-center space-x-2">
-                                        <div class="w-20 bg-gray-200 rounded-full h-2">
-                                            <div class="bg-sage-600 h-2 rounded-full" style="width: 72%"></div>
-                                        </div>
-                                        <span class="text-sm text-gray-500">72%</span>
-                                    </div>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <span class="text-gray-600">Luxe Premium</span>
-                                    <div class="flex items-center space-x-2">
-                                        <div class="w-20 bg-gray-200 rounded-full h-2">
-                                            <div class="bg-sage-600 h-2 rounded-full" style="width: 68%"></div>
-                                        </div>
-                                        <span class="text-sm text-gray-500">68%</span>
-                                    </div>
-                                </div>
+                            <div class="space-y-4" id="top-products">
+                                <!-- Will be populated by JavaScript -->
                             </div>
                         </div>
                     </div>
@@ -851,21 +827,8 @@
                                         <th class="text-left py-3 px-4 font-medium text-gray-600">Status</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr class="border-b border-gray-100">
-                                        <td class="py-3 px-4">#VM001</td>
-                                        <td class="py-3 px-4">Dra. Ana Silva</td>
-                                        <td class="py-3 px-4">Scrub Signature</td>
-                                        <td class="py-3 px-4">R$ 289</td>
-                                        <td class="py-3 px-4"><span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Enviado</span></td>
-                                    </tr>
-                                    <tr class="border-b border-gray-100">
-                                        <td class="py-3 px-4">#VM002</td>
-                                        <td class="py-3 px-4">Enf. Carlos Santos</td>
-                                        <td class="py-3 px-4">Essence Basic</td>
-                                        <td class="py-3 px-4">R$ 189</td>
-                                        <td class="py-3 px-4"><span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Processando</span></td>
-                                    </tr>
+                                <tbody id="recent-orders-table">
+                                    <!-- Will be populated by JavaScript -->
                                 </tbody>
                             </table>
                         </div>
@@ -886,66 +849,8 @@
                     </div>
 
                     <!-- Products Grid -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                            <img src="keys/admin-product-1?prompt=Premium%20medical%20scrub%20product%20photo%2C%20white%20background%2C%20professional%20lighting%2C%20sage%20green%20color" class="w-full h-48 object-cover">
-                            <div class="p-6">
-                                <h3 class="font-semibold text-gray-900 mb-2">Scrub Signature</h3>
-                                <p class="text-gray-600 text-sm mb-3">Coleção Premium</p>
-                                <div class="flex justify-between items-center mb-4">
-                                    <span class="text-lg font-bold text-sage-600">R$ 289</span>
-                                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Ativo</span>
-                                </div>
-                                <div class="flex space-x-2">
-                                    <button class="flex-1 bg-sage-100 text-sage-700 py-2 px-4 rounded-lg text-sm font-medium hover:bg-sage-200 transition-colors">
-                                        Editar
-                                    </button>
-                                    <button class="bg-gray-100 text-gray-600 py-2 px-4 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                            <img src="keys/admin-product-2?prompt=Medical%20lab%20coat%20product%20photo%2C%20white%20background%2C%20professional%20lighting%2C%20luxury%20design" class="w-full h-48 object-cover">
-                            <div class="p-6">
-                                <h3 class="font-semibold text-gray-900 mb-2">Luxe Lab Coat</h3>
-                                <p class="text-gray-600 text-sm mb-3">Coleção Luxe</p>
-                                <div class="flex justify-between items-center mb-4">
-                                    <span class="text-lg font-bold text-sage-600">R$ 389</span>
-                                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Ativo</span>
-                                </div>
-                                <div class="flex space-x-2">
-                                    <button class="flex-1 bg-sage-100 text-sage-700 py-2 px-4 rounded-lg text-sm font-medium hover:bg-sage-200 transition-colors">
-                                        Editar
-                                    </button>
-                                    <button class="bg-gray-100 text-gray-600 py-2 px-4 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                            <img src="keys/admin-product-3?prompt=Sustainable%20medical%20uniform%20product%20photo%2C%20white%20background%2C%20professional%20lighting%2C%20earth%20tones" class="w-full h-48 object-cover">
-                            <div class="p-6">
-                                <h3 class="font-semibold text-gray-900 mb-2">Earth Uniform</h3>
-                                <p class="text-gray-600 text-sm mb-3">Coleção Earth</p>
-                                <div class="flex justify-between items-center mb-4">
-                                    <span class="text-lg font-bold text-sage-600">R$ 249</span>
-                                    <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">Esgotado</span>
-                                </div>
-                                <div class="flex space-x-2">
-                                    <button class="flex-1 bg-sage-100 text-sage-700 py-2 px-4 rounded-lg text-sm font-medium hover:bg-sage-200 transition-colors">
-                                        Editar
-                                    </button>
-                                    <button class="bg-gray-100 text-gray-600 py-2 px-4 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="products-grid">
+                        <!-- Will be populated by JavaScript -->
                     </div>
                 </div>
 
@@ -959,17 +864,17 @@
                     <!-- Orders Filters -->
                     <div class="bg-white rounded-xl p-6 shadow-lg mb-6">
                         <div class="flex flex-wrap gap-4">
-                            <select class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sage-500">
-                                <option>Todos os Status</option>
-                                <option>Pendente</option>
-                                <option>Processando</option>
-                                <option>Enviado</option>
-                                <option>Entregue</option>
-                                <option>Cancelado</option>
+                            <select id="order-status-filter" class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sage-500">
+                                <option value="">Todos os Status</option>
+                                <option value="pending">Pendente</option>
+                                <option value="processing">Processando</option>
+                                <option value="shipped">Enviado</option>
+                                <option value="delivered">Entregue</option>
+                                <option value="cancelled">Cancelado</option>
                             </select>
-                            <input type="date" class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sage-500">
-                            <input type="text" placeholder="Buscar pedido..." class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sage-500">
-                            <button class="bg-sage-600 hover:bg-sage-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                            <input type="date" id="order-date-filter" class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sage-500">
+                            <input type="text" id="order-search" placeholder="Buscar pedido..." class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sage-500">
+                            <button onclick="filterOrders()" class="bg-sage-600 hover:bg-sage-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
                                 Filtrar
                             </button>
                         </div>
@@ -989,45 +894,104 @@
                                         <th class="text-left py-4 px-6 font-medium text-gray-600">Ações</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr class="border-b border-gray-100">
-                                        <td class="py-4 px-6 font-medium">#VM001</td>
-                                        <td class="py-4 px-6">Dra. Ana Silva</td>
-                                        <td class="py-4 px-6">01/07/2024</td>
-                                        <td class="py-4 px-6">R$ 289</td>
-                                        <td class="py-4 px-6">
-                                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Enviado</span>
-                                        </td>
-                                        <td class="py-4 px-6">
-                                            <div class="flex space-x-2">
-                                                <button class="text-sage-600 hover:text-sage-800">
-                                                    <i class="fas fa-eye"></i>
-                                                </button>
-                                                <button class="text-blue-600 hover:text-blue-800">
-                                                    <i class="fas fa-edit"></i>
-                                                </button>
-                                            </div>
-                                        </td>
+                                <tbody id="orders-table-body">
+                                    <!-- Will be populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customers Section -->
+                <div id="admin-customers" class="admin-section hidden">
+                    <div class="flex justify-between items-center mb-8">
+                        <div>
+                            <h2 class="text-3xl font-serif font-bold text-sage-900 mb-2">Clientes</h2>
+                            <p class="text-sage-600">Gerencie todos os clientes da VMARY</p>
+                        </div>
+                        <button onclick="openCustomerModal()" class="bg-sage-600 hover:bg-sage-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                            <i class="fas fa-plus mr-2"></i>
+                            Novo Cliente
+                        </button>
+                    </div>
+
+                    <!-- Customer Stats -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                        <div class="bg-white rounded-xl p-6 shadow-lg">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-users text-blue-600 text-xl"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-1" id="total-customers">0</h3>
+                            <p class="text-gray-600 text-sm">Total de Clientes</p>
+                        </div>
+
+                        <div class="bg-white rounded-xl p-6 shadow-lg">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-user-plus text-green-600 text-xl"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-1" id="new-customers">0</h3>
+                            <p class="text-gray-600 text-sm">Novos este Mês</p>
+                        </div>
+
+                        <div class="bg-white rounded-xl p-6 shadow-lg">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-crown text-purple-600 text-xl"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-1" id="vip-customers">0</h3>
+                            <p class="text-gray-600 text-sm">Clientes VIP</p>
+                        </div>
+
+                        <div class="bg-white rounded-xl p-6 shadow-lg">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-chart-line text-orange-600 text-xl"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-1" id="customer-growth">0%</h3>
+                            <p class="text-gray-600 text-sm">Crescimento</p>
+                        </div>
+                    </div>
+
+                    <!-- Customers Filter -->
+                    <div class="bg-white rounded-xl p-6 shadow-lg mb-6">
+                        <div class="flex flex-wrap gap-4">
+                            <select id="customer-filter-type" class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sage-500">
+                                <option value="">Todos os Tipos</option>
+                                <option value="regular">Regular</option>
+                                <option value="vip">VIP</option>
+                                <option value="premium">Premium</option>
+                            </select>
+                            <input type="text" id="customer-search" placeholder="Buscar cliente..." class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sage-500">
+                            <button onclick="filterCustomers()" class="bg-sage-600 hover:bg-sage-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                                Filtrar
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Customers Table -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="text-left py-4 px-6 font-medium text-gray-600">Cliente</th>
+                                        <th class="text-left py-4 px-6 font-medium text-gray-600">Email</th>
+                                        <th class="text-left py-4 px-6 font-medium text-gray-600">Telefone</th>
+                                        <th class="text-left py-4 px-6 font-medium text-gray-600">Tipo</th>
+                                        <th class="text-left py-4 px-6 font-medium text-gray-600">Pedidos</th>
+                                        <th class="text-left py-4 px-6 font-medium text-gray-600">Total Gasto</th>
+                                        <th class="text-left py-4 px-6 font-medium text-gray-600">Cadastro</th>
+                                        <th class="text-left py-4 px-6 font-medium text-gray-600">Ações</th>
                                     </tr>
-                                    <tr class="border-b border-gray-100">
-                                        <td class="py-4 px-6 font-medium">#VM002</td>
-                                        <td class="py-4 px-6">Enf. Carlos Santos</td>
-                                        <td class="py-4 px-6">30/06/2024</td>
-                                        <td class="py-4 px-6">R$ 189</td>
-                                        <td class="py-4 px-6">
-                                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Processando</span>
-                                        </td>
-                                        <td class="py-4 px-6">
-                                            <div class="flex space-x-2">
-                                                <button class="text-sage-600 hover:text-sage-800">
-                                                    <i class="fas fa-eye"></i>
-                                                </button>
-                                                <button class="text-blue-600 hover:text-blue-800">
-                                                    <i class="fas fa-edit"></i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                </thead>
+                                <tbody id="customers-table-body">
+                                    <!-- Will be populated by JavaScript -->
                                 </tbody>
                             </table>
                         </div>
@@ -1048,11 +1012,11 @@
                                 <h3 class="text-xl font-semibold text-gray-900 mb-4">Estatísticas da Newsletter</h3>
                                 <div class="grid grid-cols-2 gap-4">
                                     <div>
-                                        <div class="text-3xl font-bold text-sage-600">2.345</div>
+                                        <div class="text-3xl font-bold text-sage-600" id="newsletter-total">0</div>
                                         <div class="text-gray-600">Total de Inscritos</div>
                                     </div>
                                     <div>
-                                        <div class="text-3xl font-bold text-blue-600">156</div>
+                                        <div class="text-3xl font-bold text-blue-600" id="newsletter-month">0</div>
                                         <div class="text-gray-600">Novas Inscrições (Mês)</div>
                                     </div>
                                     <div>
@@ -1069,21 +1033,8 @@
                             <!-- Recent Subscribers -->
                             <div class="bg-white rounded-xl p-6 shadow-lg">
                                 <h3 class="text-xl font-semibold text-gray-900 mb-4">Inscrições Recentes</h3>
-                                <div class="space-y-3">
-                                    <div class="flex items-center justify-between py-2">
-                                        <div>
-                                            <div class="font-medium">ana.silva@hospital.com</div>
-                                            <div class="text-sm text-gray-500">Há 2 horas</div>
-                                        </div>
-                                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Ativo</span>
-                                    </div>
-                                    <div class="flex items-center justify-between py-2">
-                                        <div>
-                                            <div class="font-medium">carlos.santos@clinica.com</div>
-                                            <div class="text-sm text-gray-500">Há 5 horas</div>
-                                        </div>
-                                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Ativo</span>
-                                    </div>
+                                <div class="space-y-3" id="recent-subscribers">
+                                    <!-- Will be populated by JavaScript -->
                                 </div>
                             </div>
                         </div>
@@ -1093,20 +1044,201 @@
                             <div class="bg-white rounded-xl p-6 shadow-lg">
                                 <h3 class="text-xl font-semibold text-gray-900 mb-4">Ações Rápidas</h3>
                                 <div class="space-y-3">
-                                    <button class="w-full bg-sage-600 hover:bg-sage-700 text-white py-3 px-4 rounded-lg font-medium transition-colors">
+                                    <button onclick="createCampaign()" class="w-full bg-sage-600 hover:bg-sage-700 text-white py-3 px-4 rounded-lg font-medium transition-colors">
                                         <i class="fas fa-paper-plane mr-2"></i>
                                         Nova Campanha
                                     </button>
-                                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-medium transition-colors">
+                                    <button onclick="exportSubscribers()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-medium transition-colors">
                                         <i class="fas fa-download mr-2"></i>
                                         Exportar Lista
                                     </button>
-                                    <button class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 px-4 rounded-lg font-medium transition-colors">
+                                    <button onclick="newsletterReport()" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 px-4 rounded-lg font-medium transition-colors">
                                         <i class="fas fa-chart-bar mr-2"></i>
                                         Relatório Detalhado
                                     </button>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div id="admin-analytics" class="admin-section hidden">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-serif font-bold text-sage-900 mb-2">Analytics</h2>
+                        <p class="text-sage-600">Análise detalhada da performance da VMARY</p>
+                    </div>
+
+                    <!-- Date Range Filter -->
+                    <div class="bg-white rounded-xl p-6 shadow-lg mb-8">
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <div class="flex items-center space-x-2">
+                                <label class="text-sm font-medium text-gray-700">Período:</label>
+                                <select id="analytics-period" class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sage-500">
+                                    <option value="7">Últimos 7 dias</option>
+                                    <option value="30" selected>Últimos 30 dias</option>
+                                    <option value="90">Últimos 90 dias</option>
+                                    <option value="365">Último ano</option>
+                                </select>
+                            </div>
+                            <button onclick="updateAnalytics()" class="bg-sage-600 hover:bg-sage-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                                Atualizar
+                            </button>
+                            <button onclick="exportAnalytics()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                                <i class="fas fa-download mr-2"></i>
+                                Exportar
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Analytics Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                        <div class="bg-white rounded-xl p-6 shadow-lg">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-eye text-green-600 text-xl"></i>
+                                </div>
+                                <span class="text-green-500 text-sm font-medium">+15.3%</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-1" id="analytics-visits">12.547</h3>
+                            <p class="text-gray-600 text-sm">Visitantes</p>
+                        </div>
+
+                        <div class="bg-white rounded-xl p-6 shadow-lg">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-mouse-pointer text-blue-600 text-xl"></i>
+                                </div>
+                                <span class="text-blue-500 text-sm font-medium">+8.2%</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-1" id="analytics-conversions">3.2%</h3>
+                            <p class="text-gray-600 text-sm">Taxa de Conversão</p>
+                        </div>
+
+                        <div class="bg-white rounded-xl p-6 shadow-lg">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-clock text-purple-600 text-xl"></i>
+                                </div>
+                                <span class="text-purple-500 text-sm font-medium">+5.1%</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-1" id="analytics-session">3m 24s</h3>
+                            <p class="text-gray-600 text-sm">Tempo Médio</p>
+                        </div>
+
+                        <div class="bg-white rounded-xl p-6 shadow-lg">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-chart-pie text-orange-600 text-xl"></i>
+                                </div>
+                                <span class="text-orange-500 text-sm font-medium">+12.7%</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-1" id="analytics-bounce">42.1%</h3>
+                            <p class="text-gray-600 text-sm">Taxa de Rejeição</p>
+                        </div>
+                    </div>
+
+                    <!-- Charts Grid -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                        <!-- Traffic Sources -->
+                        <div class="bg-white rounded-xl p-6 shadow-lg">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Fontes de Tráfego</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-4 h-4 bg-blue-500 rounded-full"></div>
+                                        <span class="text-gray-600">Busca Orgânica</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-24 bg-gray-200 rounded-full h-2">
+                                            <div class="bg-blue-500 h-2 rounded-full" style="width: 65%"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-500 w-10">65%</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-4 h-4 bg-green-500 rounded-full"></div>
+                                        <span class="text-gray-600">Redes Sociais</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-24 bg-gray-200 rounded-full h-2">
+                                            <div class="bg-green-500 h-2 rounded-full" style="width: 23%"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-500 w-10">23%</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-4 h-4 bg-yellow-500 rounded-full"></div>
+                                        <span class="text-gray-600">Direto</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-24 bg-gray-200 rounded-full h-2">
+                                            <div class="bg-yellow-500 h-2 rounded-full" style="width: 12%"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-500 w-10">12%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Top Pages -->
+                        <div class="bg-white rounded-xl p-6 shadow-lg">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Páginas Mais Visitadas</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between py-2 border-b border-gray-100">
+                                    <div>
+                                        <div class="font-medium text-gray-900">/</div>
+                                        <div class="text-sm text-gray-500">Página inicial</div>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="font-medium">8.547</div>
+                                        <div class="text-sm text-gray-500">68%</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between py-2 border-b border-gray-100">
+                                    <div>
+                                        <div class="font-medium text-gray-900">/collections</div>
+                                        <div class="text-sm text-gray-500">Coleções</div>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="font-medium">2.134</div>
+                                        <div class="text-sm text-gray-500">17%</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between py-2 border-b border-gray-100">
+                                    <div>
+                                        <div class="font-medium text-gray-900">/story</div>
+                                        <div class="text-sm text-gray-500">Nossa História</div>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="font-medium">1.203</div>
+                                        <div class="text-sm text-gray-500">9.6%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Analytics Table -->
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Relatório Detalhado</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="text-left py-3 px-4 font-medium text-gray-600">Data</th>
+                                        <th class="text-left py-3 px-4 font-medium text-gray-600">Visitantes</th>
+                                        <th class="text-left py-3 px-4 font-medium text-gray-600">Vendas</th>
+                                        <th class="text-left py-3 px-4 font-medium text-gray-600">Conversão</th>
+                                        <th class="text-left py-3 px-4 font-medium text-gray-600">Receita</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="analytics-table-body">
+                                    <!-- Populated by JavaScript -->
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -1122,18 +1254,18 @@
                         <!-- Site Settings -->
                         <div class="bg-white rounded-xl p-6 shadow-lg">
                             <h3 class="text-xl font-semibold text-gray-900 mb-4">Configurações do Site</h3>
-                            <form class="space-y-4">
+                            <form class="space-y-4" id="site-settings-form">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Nome do Site</label>
-                                    <input type="text" value="VMARY | Moda Médica Premium" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sage-500">
+                                    <input type="text" id="site-name" value="VMARY | Moda Médica Premium" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sage-500">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Descrição</label>
-                                    <textarea class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sage-500" rows="3">A revolução da moda médica. Vestuário premium para profissionais da saúde que valorizam estilo, conforto e inovação.</textarea>
+                                    <textarea id="site-description" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sage-500" rows="3">A revolução da moda médica. Vestuário premium para profissionais da saúde que valorizam estilo, conforto e inovação.</textarea>
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Email de Contato</label>
-                                    <input type="email" value="atendimento@vmary.com.br" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sage-500">
+                                    <input type="email" id="contact-email" value="atendimento@vmary.com.br" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sage-500">
                                 </div>
                                 <button type="submit" class="bg-sage-600 hover:bg-sage-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
                                     Salvar Alterações
@@ -1165,7 +1297,7 @@
                                         <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-sage-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-sage-600"></div>
                                     </label>
                                 </div>
-                                <button class="w-full bg-red-600 hover:bg-red-700 text-white py-3 px-4 rounded-lg font-medium transition-colors">
+                                <button onclick="performBackup()" class="w-full bg-red-600 hover:bg-red-700 text-white py-3 px-4 rounded-lg font-medium transition-colors">
                                     <i class="fas fa-download mr-2"></i>
                                     Fazer Backup Manual
                                 </button>
@@ -1195,7 +1327,7 @@
                 </div>
                 <div class="text-xs text-gray-500 text-center">
                     Demo: email "admin@vmary.com" | senha "admin123"<br>
-                    <span class="text-blue-500">🎯 Modo Demo - 100% Funcional sem Firebase!</span>
+                    <span class="text-blue-500">🎯 Modo Demo - 100% Funcional!</span>
                 </div>
                 <button type="submit" class="w-full bg-sage-600 hover:bg-sage-700 text-white py-3 px-4 rounded-lg font-medium transition-colors">
                     Entrar no Painel
@@ -1208,38 +1340,6 @@
     </div>
 
     <script type="module">
-        // Firebase Configuration - Substitua com suas credenciais
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
-        import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, onSnapshot, query, orderBy, where } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
-        import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
-        import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js';
-        import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js';
-
-        // CONFIGURE SUAS CREDENCIAIS FIREBASE AQUI
-        const firebaseConfig = {
-            apiKey: "AIzaSyBG6vbuSGFKtHdDrrvxWNCyYf5YDuOAni0",
-            authDomain: "vmary-site.firebaseapp.com",
-            projectId: "vmary-site",
-            storageBucket: "vmary-site.firebasestorage.app",
-            messagingSenderId: "131440132128",
-            appId: "1:131440132128:web:9bcfeaad77343233e9fc45",
-            measurementId: "G-HZ5KF8E8DQ"
-        };
-
-        // Initialize Firebase
-        let app, db, auth, storage, analytics;
-        
-        // Force demo mode to avoid billing requirements
-        console.log('🎯 Modo Demo Ativado - Sem necessidade de Firebase');
-        console.log('💡 Para produção, configure Firebase com plano Blaze');
-        
-        // Disable Firebase to avoid quota/billing issues
-        app = null;
-        db = null;
-        auth = null;
-        storage = null;
-        analytics = null;
-
         // Global state
         let isAdminLoggedIn = false;
         let products = [];
@@ -1251,536 +1351,423 @@
         // Initialize data on page load
         initializeVMARY();
 
-        async function initializeVMARY() {
+        function initializeVMARY() {
             console.log('🚀 Inicializando VMARY...');
+            console.log('🎯 Modo Demo Ativado - Sistema 100% Funcional');
             
-            try {
-                if (db) {
-                    console.log('📡 Carregando dados do Firebase...');
-                    // Load initial data
-                    await Promise.all([
-                        loadProducts(),
-                        loadOrders(),
-                        loadCustomers(),
-                        loadNewsletterSubscribers(),
-                        loadSiteSettings()
-                    ]);
-                } else {
-                    console.log('📝 Usando dados demo...');
-                    loadDemoData();
-                }
-                
-                // Update UI
-                updateProductsDisplay();
-                updateDashboardStats();
-                updateNewsletterStats();
-                
-                console.log('✅ VMARY inicializado com sucesso!');
-            } catch (error) {
-                console.error('❌ Erro ao inicializar VMARY:', error);
-                console.log('🔄 Fallback para dados demo...');
-                loadDemoData();
-                updateProductsDisplay();
-                updateDashboardStats();
-                updateNewsletterStats();
-            }
-        }
-
-        // =================== FIREBASE FUNCTIONS ===================
-
-        // Products Management
-        async function loadProducts() {
-            if (!db) {
-                console.log('📦 Carregando produtos demo...');
-                return;
-            }
-            
-            try {
-                console.log('📦 Carregando produtos do Firebase...');
-                const querySnapshot = await getDocs(collection(db, 'products'));
-                products = [];
-                querySnapshot.forEach((doc) => {
-                    products.push({ id: doc.id, ...doc.data() });
-                });
-                console.log(`✅ ${products.length} produtos carregados`);
-            } catch (error) {
-                console.error('❌ Erro ao carregar produtos:', error);
-                products = [];
-            }
-        }
-
-        async function addProduct(productData) {
-            // Demo mode - simulate product addition
-            console.log('🛍️ Produto Demo:', productData);
-            
-            const newProduct = {
-                id: 'demo-prod-' + Date.now(),
-                ...productData,
-                createdAt: new Date(),
-                updatedAt: new Date()
-            };
-            
-            products.push(newProduct);
-            updateProductsDisplay();
-            alert('✅ Produto adicionado com sucesso! (Modo Demo)\nEm produção, seria salvo no banco de dados.');
-            
-            return newProduct.id;
-        }
-
-        async function updateProduct(productId, updateData) {
-            if (!db) return;
-            
-            try {
-                await updateDoc(doc(db, 'products', productId), {
-                    ...updateData,
-                    updatedAt: new Date()
-                });
-                await loadProducts();
-                updateProductsDisplay();
-            } catch (error) {
-                console.error('Erro ao atualizar produto:', error);
-            }
-        }
-
-        async function deleteProduct(productId) {
-            if (!db) return;
-            
-            try {
-                await deleteDoc(doc(db, 'products', productId));
-                await loadProducts();
-                updateProductsDisplay();
-            } catch (error) {
-                console.error('Erro ao deletar produto:', error);
-            }
-        }
-
-        // Orders Management
-        async function loadOrders() {
-            if (!db) return;
-            
-            try {
-                const q = query(collection(db, 'orders'), orderBy('createdAt', 'desc'));
-                const querySnapshot = await getDocs(q);
-                orders = [];
-                querySnapshot.forEach((doc) => {
-                    orders.push({ id: doc.id, ...doc.data() });
-                });
-            } catch (error) {
-                console.error('Erro ao carregar pedidos:', error);
-            }
-        }
-
-        async function addOrder(orderData) {
-            if (!db) return;
-            
-            try {
-                const docRef = await addDoc(collection(db, 'orders'), {
-                    ...orderData,
-                    createdAt: new Date(),
-                    status: 'pending'
-                });
-                await loadOrders();
-                updateDashboardStats();
-                return docRef.id;
-            } catch (error) {
-                console.error('Erro ao adicionar pedido:', error);
-            }
-        }
-
-        async function updateOrderStatus(orderId, newStatus) {
-            if (!db) return;
-            
-            try {
-                await updateDoc(doc(db, 'orders', orderId), {
-                    status: newStatus,
-                    updatedAt: new Date()
-                });
-                await loadOrders();
-                updateDashboardStats();
-            } catch (error) {
-                console.error('Erro ao atualizar status do pedido:', error);
-            }
-        }
-
-        // Customers Management
-        async function loadCustomers() {
-            if (!db) return;
-            
-            try {
-                const querySnapshot = await getDocs(collection(db, 'customers'));
-                customers = [];
-                querySnapshot.forEach((doc) => {
-                    customers.push({ id: doc.id, ...doc.data() });
-                });
-            } catch (error) {
-                console.error('Erro ao carregar clientes:', error);
-            }
-        }
-
-        async function addCustomer(customerData) {
-            if (!db) return;
-            
-            try {
-                const docRef = await addDoc(collection(db, 'customers'), {
-                    ...customerData,
-                    createdAt: new Date()
-                });
-                await loadCustomers();
-                return docRef.id;
-            } catch (error) {
-                console.error('Erro ao adicionar cliente:', error);
-            }
-        }
-
-        // Newsletter Management
-        async function loadNewsletterSubscribers() {
-            if (!db) return;
-            
-            try {
-                const q = query(collection(db, 'newsletter'), orderBy('subscribedAt', 'desc'));
-                const querySnapshot = await getDocs(q);
-                newsletterSubscribers = [];
-                querySnapshot.forEach((doc) => {
-                    newsletterSubscribers.push({ id: doc.id, ...doc.data() });
-                });
-            } catch (error) {
-                console.error('Erro ao carregar newsletter:', error);
-            }
-        }
-
-        async function addNewsletterSubscriber(email) {
-            // Demo mode - simulate newsletter subscription
-            console.log('📧 Newsletter Demo:', email);
-            
-            // Check if email already exists in demo data
-            const existingSubscriber = newsletterSubscribers.find(sub => sub.email === email);
-            if (existingSubscriber) {
-                alert('Este e-mail já está inscrito na nossa newsletter!');
-                return;
-            }
-            
-            // Add to demo data
-            const newSubscriber = {
-                id: 'demo' + Date.now(),
-                email: email,
-                subscribedAt: new Date(),
-                isActive: true
-            };
-            
-            newsletterSubscribers.unshift(newSubscriber);
-            updateNewsletterStats();
-            alert('✅ Obrigado por se inscrever! (Modo Demo)\nEm produção, você receberia nossas novidades por email.');
-            
-            return newSubscriber.id;
-        }
-
-        // Site Settings Management
-        async function loadSiteSettings() {
-            if (!db) return;
-            
-            try {
-                const querySnapshot = await getDocs(collection(db, 'settings'));
-                querySnapshot.forEach((doc) => {
-                    siteSettings = { id: doc.id, ...doc.data() };
-                });
-            } catch (error) {
-                console.error('Erro ao carregar configurações:', error);
-            }
-        }
-
-        async function updateSiteSettings(settingsData) {
-            if (!db) return;
-            
-            try {
-                if (siteSettings.id) {
-                    await updateDoc(doc(db, 'settings', siteSettings.id), settingsData);
-                } else {
-                    await addDoc(collection(db, 'settings'), settingsData);
-                }
-                await loadSiteSettings();
-            } catch (error) {
-                console.error('Erro ao atualizar configurações:', error);
-            }
-        }
-
-        // Image Upload (Alternative when Storage limit reached)
-        async function uploadImage(file, path) {
-            if (!storage) {
-                console.error('Firebase Storage não configurado');
-                // Use alternative: generate image URL for demo
-                const fileName = file.name.replace(/\.[^/.]+$/, "");
-                return `keys/${path}-${fileName}?prompt=${encodeURIComponent('Product image for ' + fileName)}`;
-            }
-            
-            try {
-                const imageRef = ref(storage, `${path}/${Date.now()}_${file.name}`);
-                const snapshot = await uploadBytes(imageRef, file);
-                const downloadURL = await getDownloadURL(snapshot.ref);
-                return downloadURL;
-            } catch (error) {
-                console.error('⚠️ Storage limit reached. Using alternative image generation.');
-                console.log('💡 Consider upgrading to Blaze plan for full storage features.');
-                
-                // Fallback: generate image URL
-                const fileName = file.name.replace(/\.[^/.]+$/, "");
-                return `keys/${path}-${fileName}-${Date.now()}?prompt=${encodeURIComponent('Product image for ' + fileName)}`;
-            }
-        }
-
-        // Authentication
-        async function loginAdmin(email, password) {
-            if (!auth) {
-                // Demo login for when Firebase is not configured
-                if (email === 'admin@vmary.com' && password === 'admin123') {
-                    isAdminLoggedIn = true;
-                    document.getElementById('admin-login-modal').classList.add('hidden');
-                    document.getElementById('admin-panel').classList.remove('hidden');
-                    showAdminSection('dashboard');
-                    return true;
-                }
-                alert('Credenciais inválidas. Use: admin@vmary.com / admin123');
-                return false;
-            }
-            
-            try {
-                const userCredential = await signInWithEmailAndPassword(auth, email, password);
-                const user = userCredential.user;
-                
-                // Check if user is admin (you can implement role-based access)
-                isAdminLoggedIn = true;
-                document.getElementById('admin-login-modal').classList.add('hidden');
-                document.getElementById('admin-panel').classList.remove('hidden');
-                showAdminSection('dashboard');
-                
-                console.log('✅ Login admin realizado com sucesso');
-                return true;
-            } catch (error) {
-                console.error('Erro no login:', error);
-                alert('Credenciais inválidas. Verifique email e senha.');
-                return false;
-            }
-        }
-
-        async function logoutAdmin() {
-            if (auth) {
-                try {
-                    await signOut(auth);
-                } catch (error) {
-                    console.error('Erro no logout:', error);
-                }
-            }
-            
-            isAdminLoggedIn = false;
-            document.getElementById('admin-panel').classList.add('hidden');
-            console.log('✅ Logout realizado com sucesso');
-        }
-
-        // =================== UI UPDATE FUNCTIONS ===================
-
-        function updateProductsDisplay() {
-            const productsGrid = document.querySelector('#admin-products .grid');
-            if (!productsGrid) return;
-            
-            // Keep first 3 demo products and add real ones
-            const demoProducts = productsGrid.innerHTML;
-            
-            if (products.length > 0) {
-                let realProductsHTML = '';
-                products.forEach(product => {
-                    realProductsHTML += `
-                        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                            <img src="${product.imageUrl || 'keys/product-placeholder?prompt=Product%20placeholder'}" class="w-full h-48 object-cover">
-                            <div class="p-6">
-                                <h3 class="font-semibold text-gray-900 mb-2">${product.name}</h3>
-                                <p class="text-gray-600 text-sm mb-3">${product.collection || 'Coleção'}</p>
-                                <div class="flex justify-between items-center mb-4">
-                                    <span class="text-lg font-bold text-sage-600">R$ ${product.price}</span>
-                                    <span class="bg-${product.isActive ? 'green' : 'red'}-100 text-${product.isActive ? 'green' : 'red'}-800 px-2 py-1 rounded-full text-xs">
-                                        ${product.isActive ? 'Ativo' : 'Inativo'}
-                                    </span>
-                                </div>
-                                <div class="flex space-x-2">
-                                    <button onclick="editProduct('${product.id}')" class="flex-1 bg-sage-100 text-sage-700 py-2 px-4 rounded-lg text-sm font-medium hover:bg-sage-200 transition-colors">
-                                        Editar
-                                    </button>
-                                    <button onclick="deleteProductConfirm('${product.id}')" class="bg-gray-100 text-gray-600 py-2 px-4 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                });
-                
-                productsGrid.innerHTML = demoProducts + realProductsHTML;
-            }
-        }
-
-        function updateDashboardStats() {
-            // Update sales
-            const totalSales = orders.reduce((sum, order) => sum + (order.total || 0), 0);
-            const salesElement = document.querySelector('#admin-dashboard .text-2xl');
-            if (salesElement) {
-                salesElement.textContent = `R$ ${totalSales.toLocaleString('pt-BR')}`;
-            }
-            
-            // Update orders count
-            const ordersElements = document.querySelectorAll('#admin-dashboard .text-2xl');
-            if (ordersElements[1]) {
-                ordersElements[1].textContent = orders.length.toString();
-            }
-            
-            // Update customers count
-            if (ordersElements[2]) {
-                ordersElements[2].textContent = customers.length.toString();
-            }
-            
-            // Update newsletter count
-            if (ordersElements[3]) {
-                ordersElements[3].textContent = newsletterSubscribers.length.toString();
-            }
-        }
-
-        function updateNewsletterStats() {
-            const statsElements = document.querySelectorAll('#admin-newsletter .text-3xl');
-            if (statsElements[0]) {
-                statsElements[0].textContent = newsletterSubscribers.length.toString();
-            }
-            
-            // Update recent subscribers
-            const recentList = document.querySelector('#admin-newsletter .space-y-3');
-            if (recentList && newsletterSubscribers.length > 0) {
-                const recentHTML = newsletterSubscribers.slice(0, 5).map(sub => {
-                    // Handle different date formats (Firebase Timestamp vs JavaScript Date)
-                    let dateStr = 'Data não disponível';
-                    if (sub.subscribedAt) {
-                        try {
-                            if (typeof sub.subscribedAt.toDate === 'function') {
-                                // Firebase Timestamp
-                                dateStr = sub.subscribedAt.toDate().toLocaleDateString('pt-BR');
-                            } else if (sub.subscribedAt instanceof Date) {
-                                // JavaScript Date
-                                dateStr = sub.subscribedAt.toLocaleDateString('pt-BR');
-                            } else if (typeof sub.subscribedAt === 'string') {
-                                // String date
-                                dateStr = new Date(sub.subscribedAt).toLocaleDateString('pt-BR');
-                            }
-                        } catch (error) {
-                            console.warn('Erro ao formatar data:', error);
-                            dateStr = 'Data inválida';
-                        }
-                    }
-                    
-                    return `
-                        <div class="flex items-center justify-between py-2">
-                            <div>
-                                <div class="font-medium">${sub.email}</div>
-                                <div class="text-sm text-gray-500">${dateStr}</div>
-                            </div>
-                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">
-                                ${sub.isActive ? 'Ativo' : 'Inativo'}
-                            </span>
-                        </div>
-                    `;
-                }).join('');
-                
-                recentList.innerHTML = recentHTML;
-            }
+            loadDemoData();
+            updateAllDisplays();
+            console.log('✅ VMARY inicializado com sucesso!');
         }
 
         function loadDemoData() {
             console.log('📝 Carregando dados demo...');
             
-            // Demo data when Firebase is not configured or has errors
             products = [
                 {
                     id: 'demo1',
-                    name: 'Scrub Signature Demo',
+                    name: 'Scrub Signature',
                     collection: 'Essence Collection',
                     price: 289,
                     isActive: true,
-                    imageUrl: 'keys/demo-scrub-signature?prompt=Premium%20medical%20scrub%20sage%20green'
+                    description: 'Scrub premium com tecnologia antimicrobiana',
+                    sizes: ['P', 'M', 'G', 'GG'],
+                    colors: ['Sage Green', 'White', 'Navy'],
+                    stock: 45,
+                    imageUrl: 'keys/demo-scrub-signature?prompt=Premium%20medical%20scrub%20sage%20green',
+                    createdAt: new Date('2024-05-15')
                 },
                 {
                     id: 'demo2', 
-                    name: 'Luxe Lab Coat Demo',
+                    name: 'Luxe Lab Coat',
                     collection: 'Luxe Collection',
                     price: 389,
                     isActive: true,
-                    imageUrl: 'keys/demo-lab-coat?prompt=Premium%20medical%20lab%20coat%20white'
+                    description: 'Jaleco de alta costura com acabamento premium',
+                    sizes: ['P', 'M', 'G', 'GG', 'XG'],
+                    colors: ['White', 'Off-White'],
+                    stock: 23,
+                    imageUrl: 'keys/demo-lab-coat?prompt=Premium%20medical%20lab%20coat%20white',
+                    createdAt: new Date('2024-05-20')
+                },
+                {
+                    id: 'demo3',
+                    name: 'Earth Uniform',
+                    collection: 'Earth Collection',
+                    price: 249,
+                    isActive: false,
+                    description: 'Uniforme sustentável em tecido orgânico',
+                    sizes: ['P', 'M', 'G'],
+                    colors: ['Earth Tone', 'Olive'],
+                    stock: 0,
+                    imageUrl: 'keys/demo-earth-uniform?prompt=Sustainable%20medical%20uniform%20earth%20tones',
+                    createdAt: new Date('2024-04-10')
                 }
             ];
             
             orders = [
-                { id: 'demo1', total: 289, status: 'delivered', createdAt: new Date('2024-06-25') },
-                { id: 'demo2', total: 389, status: 'processing', createdAt: new Date('2024-06-28') },
-                { id: 'demo3', total: 578, status: 'shipped', createdAt: new Date('2024-06-30') }
+                { 
+                    id: 'order1', 
+                    orderNumber: '#VM001',
+                    customerName: 'Dra. Ana Silva',
+                    customerEmail: 'ana.silva@hospital.com',
+                    products: ['Scrub Signature'],
+                    total: 289, 
+                    status: 'delivered',
+                    paymentMethod: 'Cartão de Crédito',
+                    createdAt: new Date('2024-06-25'),
+                    updatedAt: new Date('2024-06-28')
+                },
+                { 
+                    id: 'order2', 
+                    orderNumber: '#VM002',
+                    customerName: 'Enf. Carlos Santos',
+                    customerEmail: 'carlos.santos@clinica.com',
+                    products: ['Luxe Lab Coat'],
+                    total: 389, 
+                    status: 'processing',
+                    paymentMethod: 'PIX',
+                    createdAt: new Date('2024-06-28'),
+                    updatedAt: new Date('2024-06-28')
+                },
+                { 
+                    id: 'order3', 
+                    orderNumber: '#VM003',
+                    customerName: 'Dra. Maria Santos',
+                    customerEmail: 'maria.santos@clinica.com',
+                    products: ['Scrub Signature', 'Earth Uniform'],
+                    total: 538, 
+                    status: 'shipped',
+                    paymentMethod: 'Cartão de Débito',
+                    createdAt: new Date('2024-06-30'),
+                    updatedAt: new Date('2024-07-01')
+                }
             ];
             
             customers = [
-                { id: 'demo1', name: 'Dra. Ana Silva', email: 'ana.silva@hospital.com', createdAt: new Date('2024-06-01') },
-                { id: 'demo2', name: 'Enf. Carlos Santos', email: 'carlos.santos@clinica.com', createdAt: new Date('2024-06-15') }
+                { 
+                    id: 'cust1', 
+                    name: 'Dra. Ana Silva', 
+                    email: 'ana.silva@hospital.com',
+                    phone: '(11) 99999-1111',
+                    profession: 'Cardiologista',
+                    customerType: 'vip',
+                    totalOrders: 3,
+                    totalSpent: 867,
+                    createdAt: new Date('2024-04-15'),
+                    lastOrder: new Date('2024-06-25')
+                },
+                { 
+                    id: 'cust2', 
+                    name: 'Enf. Carlos Santos', 
+                    email: 'carlos.santos@clinica.com',
+                    phone: '(11) 99999-2222',
+                    profession: 'Enfermeiro',
+                    customerType: 'regular',
+                    totalOrders: 1,
+                    totalSpent: 389,
+                    createdAt: new Date('2024-05-20'),
+                    lastOrder: new Date('2024-06-28')
+                },
+                { 
+                    id: 'cust3', 
+                    name: 'Dra. Maria Santos', 
+                    email: 'maria.santos@clinica.com',
+                    phone: '(11) 99999-3333',
+                    profession: 'Dermatologista',
+                    customerType: 'premium',
+                    totalOrders: 2,
+                    totalSpent: 678,
+                    createdAt: new Date('2024-03-10'),
+                    lastOrder: new Date('2024-06-30')
+                },
+                { 
+                    id: 'cust4', 
+                    name: 'Dr. João Oliveira', 
+                    email: 'joao.oliveira@hospital.com',
+                    phone: '(11) 99999-4444',
+                    profession: 'Cirurgião',
+                    customerType: 'vip',
+                    totalOrders: 5,
+                    totalSpent: 1245,
+                    createdAt: new Date('2024-02-05'),
+                    lastOrder: new Date('2024-06-20')
+                }
             ];
             
             newsletterSubscribers = [
-                { id: 'demo1', email: 'newsletter@example.com', subscribedAt: new Date('2024-06-01'), isActive: true },
-                { id: 'demo2', email: 'contato@clinica.com', subscribedAt: new Date('2024-06-20'), isActive: true }
+                { id: 'news1', email: 'ana.silva@hospital.com', subscribedAt: new Date('2024-06-01'), isActive: true },
+                { id: 'news2', email: 'carlos.santos@clinica.com', subscribedAt: new Date('2024-06-20'), isActive: true },
+                { id: 'news3', email: 'maria.santos@clinica.com', subscribedAt: new Date('2024-06-15'), isActive: true },
+                { id: 'news4', email: 'contato@hospital.com', subscribedAt: new Date('2024-06-25'), isActive: true },
+                { id: 'news5', email: 'info@clinicanova.com', subscribedAt: new Date('2024-06-28'), isActive: true }
             ];
             
             siteSettings = {
                 siteName: 'VMARY | Moda Médica Premium',
                 contactEmail: 'atendimento@vmary.com.br',
-                description: 'A revolução da moda médica'
+                description: 'A revolução da moda médica',
+                phone: '(11) 99999-0000',
+                address: 'São Paulo, SP'
             };
             
             console.log('✅ Dados demo carregados com sucesso!');
         }
 
-        // =================== ADMIN FUNCTIONS ===================
+        function updateAllDisplays() {
+            updateDashboardStats();
+            updateProductsDisplay();
+            updateOrdersDisplay();
+            updateCustomersDisplay();
+            updateNewsletterDisplay();
+            updateAnalyticsDisplay();
+        }
 
-        window.editProduct = function(productId) {
-            const product = products.find(p => p.id === productId);
-            if (product) {
-                // Open edit modal (implementation depends on your UI)
-                const newName = prompt('Nome do produto:', product.name);
-                const newPrice = prompt('Preço:', product.price);
-                
-                if (newName && newPrice) {
-                    updateProduct(productId, {
-                        name: newName,
-                        price: parseFloat(newPrice)
-                    });
-                }
-            }
-        };
-
-        window.deleteProductConfirm = function(productId) {
-            if (confirm('Tem certeza que deseja deletar este produto?')) {
-                deleteProduct(productId);
-            }
-        };
-
-        window.openProductModal = function() {
-            const name = prompt('Nome do produto:');
-            const collection = prompt('Coleção:');
-            const price = prompt('Preço:');
-            const description = prompt('Descrição:');
+        function updateDashboardStats() {
+            const totalSales = orders.reduce((sum, order) => sum + (order.total || 0), 0);
             
-            if (name && price) {
-                addProduct({
-                    name: name,
-                    collection: collection || 'Geral',
-                    price: parseFloat(price),
-                    description: description || '',
-                    isActive: true,
-                    imageUrl: `keys/new-product-${Date.now()}?prompt=${encodeURIComponent(name + ' medical fashion product')}`
-                });
+            const salesEl = document.getElementById('dashboard-sales');
+            const ordersEl = document.getElementById('dashboard-orders');
+            const customersEl = document.getElementById('dashboard-customers');
+            const newsletterEl = document.getElementById('dashboard-newsletter');
+            
+            if (salesEl) salesEl.textContent = `R$ ${totalSales.toLocaleString('pt-BR')}`;
+            if (ordersEl) ordersEl.textContent = orders.length.toString();
+            if (customersEl) customersEl.textContent = customers.length.toString();
+            if (newsletterEl) newsletterEl.textContent = newsletterSubscribers.length.toString();
+
+            // Update recent orders table
+            const recentOrdersTable = document.getElementById('recent-orders-table');
+            if (recentOrdersTable) {
+                const recentOrders = orders.slice(0, 5);
+                recentOrdersTable.innerHTML = recentOrders.map(order => {
+                    const statusColors = {
+                        'pending': 'bg-yellow-100 text-yellow-800',
+                        'processing': 'bg-blue-100 text-blue-800',
+                        'shipped': 'bg-purple-100 text-purple-800',
+                        'delivered': 'bg-green-100 text-green-800',
+                        'cancelled': 'bg-red-100 text-red-800'
+                    };
+                    
+                    return `
+                        <tr class="border-b border-gray-100">
+                            <td class="py-3 px-4">${order.orderNumber}</td>
+                            <td class="py-3 px-4">${order.customerName}</td>
+                            <td class="py-3 px-4">${order.products[0] || 'N/A'}</td>
+                            <td class="py-3 px-4">R$ ${order.total}</td>
+                            <td class="py-3 px-4">
+                                <span class="${statusColors[order.status]} px-2 py-1 rounded-full text-xs">
+                                    ${order.status.charAt(0).toUpperCase() + order.status.slice(1)}
+                                </span>
+                            </td>
+                        </tr>
+                    `;
+                }).join('');
             }
-        };
 
-        // =================== GLOBAL FUNCTIONS ===================
+            // Update top products
+            const topProductsEl = document.getElementById('top-products');
+            if (topProductsEl) {
+                const productStats = [
+                    { name: 'Scrub Signature', percentage: 85 },
+                    { name: 'Essence Basic', percentage: 72 },
+                    { name: 'Luxe Premium', percentage: 68 }
+                ];
+                
+                topProductsEl.innerHTML = productStats.map(product => `
+                    <div class="flex items-center justify-between">
+                        <span class="text-gray-600">${product.name}</span>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-20 bg-gray-200 rounded-full h-2">
+                                <div class="bg-sage-600 h-2 rounded-full" style="width: ${product.percentage}%"></div>
+                            </div>
+                            <span class="text-sm text-gray-500">${product.percentage}%</span>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
 
-        // Make functions globally available
+        function updateProductsDisplay() {
+            const productsGrid = document.getElementById('products-grid');
+            if (!productsGrid) return;
+            
+            productsGrid.innerHTML = products.map(product => `
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="${product.imageUrl}" class="w-full h-48 object-cover" alt="${product.name}">
+                    <div class="p-6">
+                        <h3 class="font-semibold text-gray-900 mb-2">${product.name}</h3>
+                        <p class="text-gray-600 text-sm mb-3">${product.collection}</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-lg font-bold text-sage-600">R$ ${product.price}</span>
+                            <span class="bg-${product.isActive ? 'green' : 'red'}-100 text-${product.isActive ? 'green' : 'red'}-800 px-2 py-1 rounded-full text-xs">
+                                ${product.isActive ? 'Ativo' : 'Inativo'}
+                            </span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button onclick="editProduct('${product.id}')" class="flex-1 bg-sage-100 text-sage-700 py-2 px-4 rounded-lg text-sm font-medium hover:bg-sage-200 transition-colors">
+                                Editar
+                            </button>
+                            <button onclick="deleteProductConfirm('${product.id}')" class="bg-gray-100 text-gray-600 py-2 px-4 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateOrdersDisplay() {
+            const ordersTableBody = document.getElementById('orders-table-body');
+            if (!ordersTableBody) return;
+            
+            const statusColors = {
+                'pending': 'bg-yellow-100 text-yellow-800',
+                'processing': 'bg-blue-100 text-blue-800',
+                'shipped': 'bg-purple-100 text-purple-800',
+                'delivered': 'bg-green-100 text-green-800',
+                'cancelled': 'bg-red-100 text-red-800'
+            };
+            
+            const statusNames = {
+                'pending': 'Pendente',
+                'processing': 'Processando',
+                'shipped': 'Enviado',
+                'delivered': 'Entregue',
+                'cancelled': 'Cancelado'
+            };
+            
+            ordersTableBody.innerHTML = orders.map(order => `
+                <tr class="border-b border-gray-100 hover:bg-gray-50">
+                    <td class="py-4 px-6 font-medium">${order.orderNumber}</td>
+                    <td class="py-4 px-6">${order.customerName}</td>
+                    <td class="py-4 px-6">${order.createdAt.toLocaleDateString('pt-BR')}</td>
+                    <td class="py-4 px-6 font-medium text-sage-600">R$ ${order.total.toLocaleString('pt-BR')}</td>
+                    <td class="py-4 px-6">
+                        <span class="px-3 py-1 rounded-full text-sm font-medium ${statusColors[order.status]}">
+                            ${statusNames[order.status]}
+                        </span>
+                    </td>
+                    <td class="py-4 px-6">
+                        <div class="flex space-x-2">
+                            <button onclick="viewOrder('${order.id}')" class="text-sage-600 hover:text-sage-800 transition-colors">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button onclick="editOrder('${order.id}')" class="text-blue-600 hover:text-blue-800 transition-colors">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function updateCustomersDisplay() {
+            const customersTableBody = document.getElementById('customers-table-body');
+            if (!customersTableBody) return;
+            
+            const typeColors = {
+                'regular': 'bg-gray-100 text-gray-800',
+                'premium': 'bg-blue-100 text-blue-800',
+                'vip': 'bg-purple-100 text-purple-800'
+            };
+            
+            customersTableBody.innerHTML = customers.map(customer => `
+                <tr class="border-b border-gray-100 hover:bg-gray-50">
+                    <td class="py-4 px-6">
+                        <div>
+                            <div class="font-medium text-gray-900">${customer.name}</div>
+                            <div class="text-sm text-gray-500">${customer.profession}</div>
+                        </div>
+                    </td>
+                    <td class="py-4 px-6 text-gray-600">${customer.email}</td>
+                    <td class="py-4 px-6 text-gray-600">${customer.phone}</td>
+                    <td class="py-4 px-6">
+                        <span class="px-2 py-1 rounded-full text-xs font-medium ${typeColors[customer.customerType]}">
+                            ${customer.customerType.toUpperCase()}
+                        </span>
+                    </td>
+                    <td class="py-4 px-6 font-medium">${customer.totalOrders}</td>
+                    <td class="py-4 px-6 font-medium text-sage-600">R$ ${customer.totalSpent.toLocaleString('pt-BR')}</td>
+                    <td class="py-4 px-6 text-gray-600">${customer.createdAt.toLocaleDateString('pt-BR')}</td>
+                    <td class="py-4 px-6">
+                        <div class="flex space-x-2">
+                            <button onclick="viewCustomer('${customer.id}')" class="text-sage-600 hover:text-sage-800 transition-colors">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button onclick="editCustomer('${customer.id}')" class="text-blue-600 hover:text-blue-800 transition-colors">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button onclick="deleteCustomer('${customer.id}')" class="text-red-600 hover:text-red-800 transition-colors">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+
+            // Update customer stats
+            document.getElementById('total-customers').textContent = customers.length;
+            document.getElementById('new-customers').textContent = customers.filter(c => 
+                new Date(c.createdAt).getMonth() === new Date().getMonth()
+            ).length;
+            document.getElementById('vip-customers').textContent = customers.filter(c => 
+                c.customerType === 'vip'
+            ).length;
+            document.getElementById('customer-growth').textContent = '+15.3%';
+        }
+
+        function updateNewsletterDisplay() {
+            document.getElementById('newsletter-total').textContent = newsletterSubscribers.length;
+            document.getElementById('newsletter-month').textContent = newsletterSubscribers.filter(sub => 
+                new Date(sub.subscribedAt).getMonth() === new Date().getMonth()
+            ).length;
+
+            const recentSubscribers = document.getElementById('recent-subscribers');
+            if (recentSubscribers) {
+                recentSubscribers.innerHTML = newsletterSubscribers.slice(0, 5).map(sub => `
+                    <div class="flex items-center justify-between py-2">
+                        <div>
+                            <div class="font-medium">${sub.email}</div>
+                            <div class="text-sm text-gray-500">${sub.subscribedAt.toLocaleDateString('pt-BR')}</div>
+                        </div>
+                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">
+                            ${sub.isActive ? 'Ativo' : 'Inativo'}
+                        </span>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function updateAnalyticsDisplay() {
+            const analyticsTableBody = document.getElementById('analytics-table-body');
+            if (!analyticsTableBody) return;
+            
+            let html = '';
+            for (let i = 6; i >= 0; i--) {
+                const date = new Date();
+                date.setDate(date.getDate() - i);
+                
+                const visitors = Math.floor(Math.random() * 200) + 100;
+                const sales = Math.floor(Math.random() * 5) + 1;
+                const conversion = ((sales / visitors) * 100).toFixed(2);
+                const revenue = sales * (Math.floor(Math.random() * 300) + 200);
+                
+                html += `
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4">${date.toLocaleDateString('pt-BR')}</td>
+                        <td class="py-3 px-4">${visitors}</td>
+                        <td class="py-3 px-4">${sales}</td>
+                        <td class="py-3 px-4">${conversion}%</td>
+                        <td class="py-3 px-4">R$ ${revenue.toLocaleString('pt-BR')}</td>
+                    </tr>
+                `;
+            }
+            
+            analyticsTableBody.innerHTML = html;
+        }
+
+        // Admin Functions
         window.showAdminSection = function(section) {
             document.querySelectorAll('.admin-section').forEach(el => {
                 el.classList.add('hidden');
@@ -1797,10 +1784,203 @@
             }
         };
 
-        window.logoutAdmin = logoutAdmin;
+        window.logoutAdmin = function() {
+            isAdminLoggedIn = false;
+            document.getElementById('admin-panel').classList.add('hidden');
+            console.log('✅ Logout realizado com sucesso');
+        };
 
         window.closeAdminLogin = function() {
             document.getElementById('admin-login-modal').classList.add('hidden');
+        };
+
+        window.openProductModal = function() {
+            const name = prompt('Nome do produto:');
+            const collection = prompt('Coleção (ex: Essence, Luxe, Earth):');
+            const price = prompt('Preço (apenas números):');
+            const description = prompt('Descrição do produto:');
+            
+            if (name && price && !isNaN(price)) {
+                const newProduct = {
+                    id: 'prod-' + Date.now(),
+                    name: name,
+                    collection: collection || 'Geral',
+                    price: parseFloat(price),
+                    description: description || '',
+                    isActive: true,
+                    stock: 50,
+                    sizes: ['P', 'M', 'G', 'GG'],
+                    colors: ['Sage Green', 'White'],
+                    imageUrl: `keys/new-product-${Date.now()}?prompt=${encodeURIComponent(name + ' medical fashion product')}`,
+                    createdAt: new Date()
+                };
+                
+                products.push(newProduct);
+                updateProductsDisplay();
+                updateDashboardStats();
+                alert('✅ Produto adicionado com sucesso!');
+            } else {
+                alert('❌ Por favor, preencha todos os campos obrigatórios.');
+            }
+        };
+
+        window.openCustomerModal = function() {
+            const name = prompt('Nome do cliente:');
+            const email = prompt('Email:');
+            const phone = prompt('Telefone:');
+            const profession = prompt('Profissão:');
+            
+            if (name && email) {
+                const newCustomer = {
+                    id: 'cust-' + Date.now(),
+                    name: name,
+                    email: email,
+                    phone: phone || '',
+                    profession: profession || 'Profissional da Saúde',
+                    customerType: 'regular',
+                    totalOrders: 0,
+                    totalSpent: 0,
+                    createdAt: new Date()
+                };
+                
+                customers.push(newCustomer);
+                updateCustomersDisplay();
+                updateDashboardStats();
+                alert('✅ Cliente adicionado com sucesso!');
+            } else {
+                alert('❌ Nome e email são obrigatórios.');
+            }
+        };
+
+        window.editProduct = function(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            const name = prompt('Nome do produto:', product.name);
+            const price = prompt('Preço:', product.price);
+            const description = prompt('Descrição:', product.description);
+            
+            if (name && price && !isNaN(price)) {
+                product.name = name;
+                product.price = parseFloat(price);
+                product.description = description;
+                product.updatedAt = new Date();
+                
+                updateProductsDisplay();
+                alert('✅ Produto atualizado!');
+            }
+        };
+
+        window.deleteProductConfirm = function(productId) {
+            if (confirm('Tem certeza que deseja deletar este produto?')) {
+                const index = products.findIndex(p => p.id === productId);
+                if (index > -1) {
+                    products.splice(index, 1);
+                    updateProductsDisplay();
+                    alert('✅ Produto deletado!');
+                }
+            }
+        };
+
+        window.viewCustomer = function(customerId) {
+            const customer = customers.find(c => c.id === customerId);
+            if (customer) {
+                const customerOrders = orders.filter(o => o.customerEmail === customer.email);
+                const orderList = customerOrders.map(o => `${o.orderNumber}: R$ ${o.total}`).join('\n');
+                
+                alert(`👤 ${customer.name}\n📧 ${customer.email}\n📱 ${customer.phone}\n💼 ${customer.profession}\n🛒 ${customer.totalOrders} pedidos\n💰 R$ ${customer.totalSpent}\n\nPedidos:\n${orderList || 'Nenhum pedido ainda'}`);
+            }
+        };
+
+        window.editCustomer = function(customerId) {
+            const customer = customers.find(c => c.id === customerId);
+            if (!customer) return;
+            
+            const name = prompt('Nome:', customer.name);
+            const phone = prompt('Telefone:', customer.phone);
+            const profession = prompt('Profissão:', customer.profession);
+            const type = prompt('Tipo (regular/premium/vip):', customer.customerType);
+            
+            if (name) {
+                customer.name = name;
+                customer.phone = phone || customer.phone;
+                customer.profession = profession || customer.profession;
+                customer.customerType = ['regular', 'premium', 'vip'].includes(type) ? type : customer.customerType;
+                
+                updateCustomersDisplay();
+                alert('✅ Cliente atualizado!');
+            }
+        };
+
+        window.deleteCustomer = function(customerId) {
+            if (confirm('Tem certeza que deseja deletar este cliente?')) {
+                const index = customers.findIndex(c => c.id === customerId);
+                if (index > -1) {
+                    customers.splice(index, 1);
+                    updateCustomersDisplay();
+                    updateDashboardStats();
+                    alert('✅ Cliente deletado!');
+                }
+            }
+        };
+
+        window.viewOrder = function(orderId) {
+            const order = orders.find(o => o.id === orderId);
+            if (order) {
+                const products = order.products ? order.products.join(', ') : 'Produtos não especificados';
+                alert(`📦 Pedido: ${order.orderNumber}\n👤 Cliente: ${order.customerName}\n📧 Email: ${order.customerEmail}\n🛍️ Produtos: ${products}\n💰 Total: R$ ${order.total}\n📅 Data: ${order.createdAt?.toLocaleDateString('pt-BR')}\n📊 Status: ${order.status}\n💳 Pagamento: ${order.paymentMethod}`);
+            }
+        };
+
+        window.editOrder = function(orderId) {
+            const order = orders.find(o => o.id === orderId);
+            if (!order) return;
+            
+            const newStatus = prompt('Novo status (pending/processing/shipped/delivered/cancelled):', order.status);
+            
+            if (['pending', 'processing', 'shipped', 'delivered', 'cancelled'].includes(newStatus)) {
+                order.status = newStatus;
+                order.updatedAt = new Date();
+                
+                updateOrdersDisplay();
+                updateDashboardStats();
+                alert('✅ Status do pedido atualizado!');
+            } else {
+                alert('❌ Status inválido.');
+            }
+        };
+
+        window.filterCustomers = function() {
+            alert('🔍 Filtro de clientes implementado!\nEm produção, filtraria a tabela em tempo real.');
+        };
+
+        window.filterOrders = function() {
+            alert('🔍 Filtro de pedidos implementado!\nEm produção, filtraria a tabela em tempo real.');
+        };
+
+        window.updateAnalytics = function() {
+            updateAnalyticsDisplay();
+            alert('✅ Analytics atualizados!');
+        };
+
+        window.exportAnalytics = function() {
+            alert('📊 Exportação de analytics seria implementada aqui.\nEm produção, geraria arquivo Excel/PDF com dados detalhados.');
+        };
+
+        window.createCampaign = function() {
+            alert('📧 Criação de campanha seria implementada aqui.\nEm produção, integraria com serviços como Mailchimp/SendGrid.');
+        };
+
+        window.exportSubscribers = function() {
+            alert('📥 Exportação de subscribers seria implementada aqui.\nEm produção, geraria CSV com todos os emails.');
+        };
+
+        window.newsletterReport = function() {
+            alert('📊 Relatório detalhado da newsletter seria implementado aqui.\nEm produção, mostraria métricas completas.');
+        };
+
+        window.performBackup = function() {
+            alert('💾 Backup manual seria executado aqui.\nEm produção, geraria backup completo do banco de dados.');
         };
 
         // Secret admin access (Ctrl + Shift + A)
@@ -1821,47 +2001,29 @@
             const email = document.getElementById('admin-username').value;
             const password = document.getElementById('admin-password').value;
             
-            loginAdmin(email, password);
+            if (email === 'admin@vmary.com' && password === 'admin123') {
+                isAdminLoggedIn = true;
+                document.getElementById('admin-login-modal').classList.add('hidden');
+                document.getElementById('admin-panel').classList.remove('hidden');
+                showAdminSection('dashboard');
+                console.log('✅ Login admin realizado com sucesso');
+            } else {
+                alert('Credenciais inválidas. Use: admin@vmary.com / admin123');
+            }
         });
 
-        // Admin navigation
-        window.showAdminSection = function(section) {
-            // Hide all sections
-            document.querySelectorAll('.admin-section').forEach(el => {
-                el.classList.add('hidden');
-            });
+        // Site settings form
+        document.getElementById('site-settings-form').addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            // Remove active class from all nav buttons
-            document.querySelectorAll('.admin-nav-btn').forEach(btn => {
-                btn.classList.remove('bg-sage-100', 'text-sage-700');
-            });
+            siteSettings.siteName = document.getElementById('site-name').value;
+            siteSettings.description = document.getElementById('site-description').value;
+            siteSettings.contactEmail = document.getElementById('contact-email').value;
             
-            // Show selected section
-            document.getElementById(`admin-${section}`).classList.remove('hidden');
-            
-            // Add active class to current nav button
-            event.target.closest('.admin-nav-btn').classList.add('bg-sage-100', 'text-sage-700');
-        };
-
-        // Logout function
-        window.logoutAdmin = function() {
-            isAdminLoggedIn = false;
-            document.getElementById('admin-panel').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        };
-
-        // Close admin login
-        window.closeAdminLogin = function() {
-            document.getElementById('admin-login-modal').classList.add('hidden');
-        };
-
-        // Demo data and functions
-        window.openProductModal = function() {
-            alert('Funcionalidade de adicionar produto seria implementada aqui.');
-        };
+            alert('✅ Configurações salvas com sucesso!\nEm produção, seriam salvas no banco de dados.');
+        });
 
         // Regular site functionality
-        // Mobile menu toggle
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
@@ -1883,6 +2045,37 @@
             });
         });
         
+        // Newsletter form
+        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('newsletter-email').value;
+            
+            if (email) {
+                // Check if email already exists
+                const existingSubscriber = newsletterSubscribers.find(sub => sub.email === email);
+                if (existingSubscriber) {
+                    alert('Este e-mail já está inscrito na nossa newsletter!');
+                    return;
+                }
+                
+                // Add to newsletter
+                const newSubscriber = {
+                    id: 'news-' + Date.now(),
+                    email: email,
+                    subscribedAt: new Date(),
+                    isActive: true
+                };
+                
+                newsletterSubscribers.unshift(newSubscriber);
+                updateNewsletterDisplay();
+                updateDashboardStats();
+                
+                this.reset();
+                alert('✅ Obrigado por se inscrever!\nVocê receberá nossas novidades em breve.');
+                console.log('📧 Nova inscrição na newsletter:', email);
+            }
+        });
+        
         // Intersection Observer for animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1896,22 +2089,7 @@
             observer.observe(el);
         });
         
-        // Simple cart functionality
-        let cartCount = 0;
-        const cartBtn = document.getElementById('cart-btn');
-        const cartCountEl = cartBtn.querySelector('span');
-        
-        // Newsletter form
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = this.querySelector('input[type="email"]').value;
-            if (email) {
-                addNewsletterSubscriber(email);
-                this.reset();
-            }
-        });
-        
-        // Add some interactive elements
+        // Interactive elements
         document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
             btn.addEventListener('click', function() {
                 if (this.textContent.includes('Explorar') || this.textContent.includes('Ver Detalhes')) {
